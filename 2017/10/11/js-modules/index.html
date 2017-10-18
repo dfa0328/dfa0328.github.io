@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rose">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="在ES6之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有CommonJS（服务器）、AMD（浏览器）和CMD。在ES6中，定义了import和export两种语法声明，从而在语言面实现了模块功能。 ECMAScript 6之前的模块化 CommonJS AMD CMD  前景：在Ja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 模块机制">
+<meta property="og:url" content="http://yoursite.com/2017/10/11/js-modules/index.html">
 <meta property="og:site_name" content="Rose">
+<meta property="og:description" content="在ES6之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有CommonJS（服务器）、AMD（浏览器）和CMD。在ES6中，定义了import和export两种语法声明，从而在语言面实现了模块功能。 ECMAScript 6之前的模块化 CommonJS AMD CMD  前景：在Ja">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-18T08:22:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rose">
+<meta name="twitter:title" content="JS 模块机制">
+<meta name="twitter:description" content="在ES6之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有CommonJS（服务器）、AMD（浏览器）和CMD。在ES6中，定义了import和export两种语法声明，从而在语言面实现了模块功能。 ECMAScript 6之前的模块化 CommonJS AMD CMD  前景：在Ja">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/11/js-modules/"/>
 
 
 
 
 
-  <title>Rose</title>
+  <title>JS 模块机制 | Rose</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/11/js-modules/" itemprop="url">JS 模块机制</a></h1>
+          <h1 class="post-title" itemprop="name headline">JS 模块机制</h1>
         
 
         <div class="post-meta">
@@ -298,9 +299,7 @@
       
 
       
-        
-          
-            <p>在<code>ES6</code>之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有<code>CommonJS</code>（服务器）、<code>AMD</code>（浏览器）和<code>CMD</code>。在<code>ES6</code>中，定义了<code>import</code>和<code>export</code>两种语法声明，从而在语言面实现了模块功能。</p>
+        <p>在<code>ES6</code>之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有<code>CommonJS</code>（服务器）、<code>AMD</code>（浏览器）和<code>CMD</code>。在<code>ES6</code>中，定义了<code>import</code>和<code>export</code>两种语法声明，从而在语言面实现了模块功能。</p>
 <h2 id="ECMAScript-6之前的模块化"><a href="#ECMAScript-6之前的模块化" class="headerlink" title="ECMAScript 6之前的模块化"></a>ECMAScript 6之前的模块化</h2><ul>
 <li>CommonJS</li>
 <li>AMD</li>
@@ -465,8 +464,6 @@
 <p>由于<code>import</code>是静态执行，所以不能使用表达式和变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 报错</div><div class="line">import &#123; &apos;f&apos; + &apos;oo&apos; &#125; from &apos;my_module&apos;;</div><div class="line"></div><div class="line">// 报错</div><div class="line">let module = &apos;my_module&apos;;</div><div class="line">import &#123; foo &#125; from module;</div><div class="line"></div><div class="line">// 报错</div><div class="line">if (x === 1) &#123;</div><div class="line">  import &#123; foo &#125; from &apos;module1&apos;;</div><div class="line">&#125; else &#123;</div><div class="line">  import &#123; foo &#125; from &apos;module2&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>注意：</strong> <code>export</code>和<code>import</code>命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错。这是因为处于条件代码块之中，就没法做静态优化了，违背了ES6模块的设计初衷。</p>
 
-          
-        
       
     </div>
     
@@ -483,12 +480,12 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -498,10 +495,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -509,6 +507,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -529,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -578,6 +589,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ECMAScript-6之前的模块化"><span class="nav-number">1.</span> <span class="nav-text">ECMAScript 6之前的模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CommomJS"><span class="nav-number">1.1.</span> <span class="nav-text">CommomJS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CommomJS的模块规范"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">CommomJS的模块规范</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#模块引用"><span class="nav-number">1.1.0.1.1.</span> <span class="nav-text">模块引用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块定义"><span class="nav-number">1.1.0.1.2.</span> <span class="nav-text">模块定义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块标识"><span class="nav-number">1.1.0.1.3.</span> <span class="nav-text">模块标识</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CommonJS模块的特点"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">CommonJS模块的特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD"><span class="nav-number">1.2.</span> <span class="nav-text">AMD</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD规范"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">AMD规范</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#模块引用-1"><span class="nav-number">1.2.0.1.1.</span> <span class="nav-text">模块引用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块定义-1"><span class="nav-number">1.2.0.1.2.</span> <span class="nav-text">模块定义</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMD"><span class="nav-number">1.3.</span> <span class="nav-text">CMD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#define"><span class="nav-number">1.3.1.</span> <span class="nav-text">define</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require"><span class="nav-number">1.3.2.</span> <span class="nav-text">require</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#exports"><span class="nav-number">1.3.3.</span> <span class="nav-text">exports</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module"><span class="nav-number">1.3.4.</span> <span class="nav-text">module</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ECMAScript-6-模块机制"><span class="nav-number">2.</span> <span class="nav-text">ECMAScript 6 模块机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6的模块机制具有以下特点："><span class="nav-number">2.1.</span> <span class="nav-text">ES6的模块机制具有以下特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6定义的模块标准由两部分组成："><span class="nav-number">2.2.</span> <span class="nav-text">ES6定义的模块标准由两部分组成：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#声明语法"><span class="nav-number">2.2.1.</span> <span class="nav-text">声明语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#export"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">export</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#import"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">import</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -706,6 +733,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
