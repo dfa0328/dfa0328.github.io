@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Rose">
 <meta property="og:description" content="在ES6之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有CommonJS（服务器）、AMD（浏览器）和CMD。在ES6中，定义了import和export两种语法声明，从而在语言面实现了模块功能。 ECMAScript 6之前的模块化 CommonJS AMD CMD  前景：在Ja">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-18T08:22:35.000Z">
+<meta property="og:updated_time" content="2017-11-03T03:09:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 模块机制">
 <meta name="twitter:description" content="在ES6之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有CommonJS（服务器）、AMD（浏览器）和CMD。在ES6中，定义了import和export两种语法声明，从而在语言面实现了模块功能。 ECMAScript 6之前的模块化 CommonJS AMD CMD  前景：在Ja">
@@ -321,7 +321,7 @@
 <li><h6 id="模块定义"><a href="#模块定义" class="headerlink" title="模块定义"></a>模块定义</h6><p>在模块中，上下文提供<code>require()</code>方法来引入外部模块。对应引入的功能，上下文提供了<code>exports</code>对象用于导出当前模块的方法或变量，并且它是唯一导出的出口（exports 变量，指向 module.exports）。在模块中，还存在一个<code>module</code>对象，它代表模块自身，而<code>exports</code>是<code>module</code>的属性。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// main.js</div><div class="line">var counter = 3;</div><div class="line">function incCounter() &#123;</div><div class="line">  counter++;</div><div class="line">&#125;</div><div class="line">//如果一个模块的对外接口，就是一个单一的值，</div><div class="line">//不能使用exports输出，只能使用module.exports输出</div><div class="line">module.exports = &#123;</div><div class="line">  counter: counter, </div><div class="line">  incCounter: incCounter,</div><div class="line">&#125;;</div><div class="line">//sum.js</div><div class="line">var main = require(&apos;main&apos;);</div><div class="line">exports.add = function()&#123;</div><div class="line">    return main.incCounter();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 </li>
-<li><h6 id="模块标识"><a href="#模块标识" class="headerlink" title="模块标识"></a>模块标识</h6><p>模块标识其实就是传递给<code>require()</code>方法的参数，它必须是符合小驼峰命名的字符串，或者以<code>.</code>、<code>..</code>开头的相对路径，或者绝对路径。require命令用于加载文件，后缀名默认为<code>.js</code>。<br>根据参数的不同格式，require命令去不同路径寻找模块文件。<br>  <strong>加载规则</strong><br>  （1）如果参数字符串以<code>/</code>开头，则表示加载的是一个位于绝对路径的模块文件。比如，<code>require(&#39;/home/marco/foo.js&#39;)</code>将加载<code>/home/marco/foo.js</code>。<br>  （2）如果参数字符串以<code>./</code>开头，则表示加载的是一个位于相对路径（跟当前执行脚本的位置相比）的模块文件。比如，<code>require(&#39;./circle&#39;)</code>将加载当前脚本同一目录的<code>circle.js</code>。<br>  （3）如果参数字符串不以<code>./</code>或<code>/</code>开头，则表示加载的是一个默认提供的核心模块（位于Node的系统安装目录中），或者一个位于各级<code>node_modules</code>目录的已安装模块（全局安装或局部安装）。<br>  举例来说，脚本<code>/home/user/projects/foo.js</code>执行了<code>require(&#39;bar.js&#39;)</code>命令，Node会依次搜索以下文件。</p>
+<li><h6 id="模块标识"><a href="#模块标识" class="headerlink" title="模块标识"></a>模块标识</h6><p>模块标识其实就是传递给<code>require()</code>方法的参数，它必须是符合小驼峰命名的字符串，或者以<code>.</code>、<code>..</code>开头的相对路径，或者绝对路径。require命令用于加载文件，后缀名默认为<code>.js</code>。<br>根据参数的不同格式，require命令去不同路径寻找模块文件。<br><strong>加载规则</strong><br>  （1) 如果参数字符串以<code>/</code>开头，则表示加载的是一个位于绝对路径的模块文件。比如，<code>require(&#39;/home/marco/foo.js&#39;)</code>将加载<code>/home/marco/foo.js</code>。<br>  （2)如果参数字符串以<code>./</code>开头，则表示加载的是一个位于相对路径（跟当前执行脚本的位置相比）的模块文件。比如，<code>require(&#39;./circle&#39;)</code>将加载当前脚本同一目录的<code>circle.js</code>。<br>  （3)如果参数字符串不以<code>./</code>或<code>/</code>开头，则表示加载的是一个默认提供的核心模块（位于Node的系统安装目录中），或者一个位于各级<code>node_modules</code>目录的已安装模块（全局安装或局部安装）。<br>  举例来说，脚本<code>/home/user/projects/foo.js</code>执行了<code>require(&#39;bar.js&#39;)</code>命令，Node会依次搜索以下文件。</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node/bar.js</div><div class="line">/home/user/projects/node_modules/bar.js</div><div class="line">/home/user/node_modules/bar.js</div><div class="line">/home/node_modules/bar.js</div><div class="line">/node_modules/bar.js</div></pre></td></tr></table></figure>
 <p>  这样设计的目的是，使得不同的模块可以将所依赖的模块本地化。<br>  （4）如果参数字符串不以<code>./</code>或<code>/</code>开头，而且是一个路径，比如<code>require(&#39;example-module/path/to/file&#39;)</code>，则将先找到<code>example-module</code>的位置，然后再以它为参数，找到后续路径。<br>  （5）如果指定的模块文件没有发现，Node会尝试为文件名添加<code>.js</code>、<code>.json</code>、<code>.node</code>后，再去搜索。<code>.js</code>件会以文本格式的JavaScript脚本文件解析，<code>.json</code>文件会以JSON格式的文本文件解析，<code>.node</code>文件会以编译后的二进制文件解析。<br>  （6）如果想得到<code>require</code>命令加载的确切文件名，使用<code>require.resolve()</code>方法。</p>
 </li>
@@ -484,6 +484,22 @@
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/03/IO/" rel="prev" title="异步I/O">
+                异步I/O <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
       
@@ -560,7 +576,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
