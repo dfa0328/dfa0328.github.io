@@ -87,7 +87,10 @@
 <meta property="og:description" content="I/OI/O（input/output），即输入/输出端口。每个设备都会有一个专用的I/O地址，用来处理自己的输入输出信息。 为什么要异步I/OWeb应用已经不再是单台服务器就能胜任的时代，在跨网络的结构下，并发已经是现代编程中的标准配备了。具体到实处，则可以从用户体验和资源分配这两个方面说起。  用户体验 因为在浏览器中JavaScript在单线程上执行，而且它还与UI渲染共用一个线程，这意味着">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/11/03/IO/io1.jpeg">
-<meta property="og:updated_time" content="2017-11-03T07:58:59.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/11/03/IO/io2.jpeg">
+<meta property="og:image" content="http://yoursite.com/2017/11/03/IO/io3.png">
+<meta property="og:image" content="http://yoursite.com/2017/11/03/IO/io4.jpeg">
+<meta property="og:updated_time" content="2017-11-06T03:41:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异步I&#x2F;O">
 <meta name="twitter:description" content="I/OI/O（input/output），即输入/输出端口。每个设备都会有一个专用的I/O地址，用来处理自己的输入输出信息。 为什么要异步I/OWeb应用已经不再是单台服务器就能胜任的时代，在跨网络的结构下，并发已经是现代编程中的标准配备了。具体到实处，则可以从用户体验和资源分配这两个方面说起。  用户体验 因为在浏览器中JavaScript在单线程上执行，而且它还与UI渲染共用一个线程，这意味着">
@@ -309,8 +312,14 @@
 <li><p><strong>资源分配</strong> 主流方法有两种：<code>单线程串行依次执行</code>，<code>多线程并行完成</code><br><strong>多线程缺点：</strong> 多线程并行的代价在于创建线程和执行期线程上下文切换的开销较大，且在复杂业务中，多线程编程经常面临锁、状态同步等问题。<br><strong>单线程缺点：</strong> 单线程串行执行的缺点在于性能，任意一个略慢的任务都会导致后续执行代码被阻塞。</p>
 </li>
 </ul>
-<h2 id="异步I-O操作调用流程"><a href="#异步I-O操作调用流程" class="headerlink" title="异步I/O操作调用流程"></a>异步I/O操作调用流程</h2><p><img src="/2017/11/03/IO/io1.jpeg" width="400" style="border:none"></p>
-
+<h2 id="异步I-O操作调用流程"><a href="#异步I-O操作调用流程" class="headerlink" title="异步I/O操作调用流程"></a>异步I/O操作调用流程</h2><p><img src="/2017/11/03/IO/io1.jpeg" width="400" style="border:none"><br>主线程就是nodejs所谓的单线程，也就是用户javascript代码运行的线程。<br>IO线程是由Libuv(Linux下由libeio具体实现；window下则由IOCP具体实现)管理的线程池控制的，本质上是多线程。即采用了线程池与阻塞IO模拟了异步IO。<br><img src="/2017/11/03/IO/io2.jpeg" width="400" style="border:none"></p>
+<h2 id="Node的异步I-O"><a href="#Node的异步I-O" class="headerlink" title="Node的异步I/O"></a>Node的异步I/O</h2><p>Node完成整个异步I/O环节的有<code>事件循环</code>、<code>观察者</code>、<code>请求对象</code>和<code>执行回调</code>。</p>
+<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><p>Node的自身的执行模型 —— <code>事件循环</code>，正是它使得回调函数十分普遍。<br>在进程启动时，Node便会创建一个类似于while(true)的循环，每执行一次循环体的过程我们称为Tick。每个Tick的过程就是查看是否有事件待处理，如果有，就取出事件及其相关的回调函数。如果存在关联的回调函数，就执行它们。然后进入下个循环体，如果不再有事件处理，就退出进程。<br>流程图如下：<br><img src="/2017/11/03/IO/io3.png" width="400" style="border:none"></p>
+<h3 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h3><p>在每个Tick的过程中，如何判断是否有事件需要处理呢？这里必须要引入的概念是<code>观察者</code>。每个事件循环中有一个或多个观察者，而判断是否有事件要处理的过程就是向这些观察者询问是否有要处理的事件。一个观察者里可能有多个事件。<br>浏览器采用了类似的机制。事件可能来自用户的点击或者加载某些文件时产生，而这些产生的事件都有对应的观察者。在Node中，事件主要来源于网络请求、文件I/O等，这些事件对应的观察者有文件I/O观察者、网络I/O观察者等。观察者将事件进行了分类。<br>事件循环是一个典型的<code>生产者/消费者模型</code>。异步I/O、网络请求等则是事件的生产者，源源不断为Node提供不同类型的事件，这些事件被传递到对应的观察者那里，事件循环则从观察者那里取出事件并处理。<br>在<code>Windows</code>下，这个循环基于IOCP创建，而在<code>*nix</code>下则基于多线程创建。</p>
+<h3 id="请求对象"><a href="#请求对象" class="headerlink" title="请求对象"></a>请求对象</h3><p>对于Node中的异步I/O调用而言，回调函数却不由开发者来调用。那么从我们发出调用后，到回调函数被执行，中间发生了什么呢？事实上，从JavaScript发起调用到内核执行完I/O操作的过渡过程中，存在一种中间产物，它叫做<code>请求对象</code>。<br>以文件操作为例，新建一个文件yzx_file.js ，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">var path = require(&apos;path&apos;);</div><div class="line"></div><div class="line">fs.readFile(__dirname + &apos;/test01.txt&apos;, &#123;flag: &apos;r+&apos;, encoding: &apos;utf8&apos;&#125;, function (err, data) &#123;</div><div class="line"></div><div class="line">    console.log(data); //打印test01.txt文本内容</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/11/03/IO/io4.jpeg" width="400" style="border:none"><br>整个文件操作的调用过程如下：<br>1）首先，用户写的javascript调用Node的核心模块fs.js ；<br>2）接下来，Node的核心模块调用C++内建模块node_file.cc ；<br>3）最后，根据不同平台（Linux或者window），内建模块通过libuv进行系统调用<br>至此，JavaScript调用立即返回，由JavaScript层面发起的异步调用的第一阶段就此结束。JavaScript线程可以继续执行当前任务的后续操作。当前的I/O操作在线程池中等待执行，不管它是否阻塞I/O，都不会影响到JavaScript线程的后续执行，如此就达到了异步的目的。</p>
+<p>请求对象是异步I/O过程中的重要中间产物，所有的状态都保存在这个对象中，包括送入线程池等待执行以及I/O操作完毕后的回调函数。</p>
+<h3 id="执行回调"><a href="#执行回调" class="headerlink" title="执行回调"></a>执行回调</h3>
       
     </div>
     
@@ -462,7 +471,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O"><span class="nav-number">1.</span> <span class="nav-text">I/O</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要异步I-O"><span class="nav-number">2.</span> <span class="nav-text">为什么要异步I/O</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步I-O操作调用流程"><span class="nav-number">3.</span> <span class="nav-text">异步I/O操作调用流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O"><span class="nav-number">1.</span> <span class="nav-text">I/O</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要异步I-O"><span class="nav-number">2.</span> <span class="nav-text">为什么要异步I/O</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步I-O操作调用流程"><span class="nav-number">3.</span> <span class="nav-text">异步I/O操作调用流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node的异步I-O"><span class="nav-number">4.</span> <span class="nav-text">Node的异步I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件循环"><span class="nav-number">4.1.</span> <span class="nav-text">事件循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者"><span class="nav-number">4.2.</span> <span class="nav-text">观察者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求对象"><span class="nav-number">4.3.</span> <span class="nav-text">请求对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行回调"><span class="nav-number">4.4.</span> <span class="nav-text">执行回调</span></a></li></ol></li></ol></div>
             
 
           </div>
