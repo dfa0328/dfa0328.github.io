@@ -229,6 +229,132 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/Buffer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="董繁爱">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rose">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/08/Buffer/" itemprop="url">理解Buffer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T17:43:12+08:00">
+                2017-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/08/Buffer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/async/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,128 +426,16 @@
       
         
           
-            <h2 id="异步编程的优势与难点"><a href="#异步编程的优势与难点" class="headerlink" title="异步编程的优势与难点"></a>异步编程的优势与难点</h2><p><strong>优势</strong>：非阻塞I/O可以使CPU与I/O并不相互依赖等待，让资源得到更好的利用。对于网络应用而言，并行带来的想象空间更大，延展而开的是分布式和云。并行使得各个单点之间能够更有效地组织起来。</p>
-<p><strong>难点</strong>：<code>异常处理</code>、<code>函数嵌套过深</code>、<code>阻塞代码</code>、<code>多线程编程</code>、<code>异步转同步</code>。<br><code>异常处理</code>：过去我们处理异常时，通常使用try/catch/final语句进行异常捕获。异步I/O的实现主要包含两个阶段：提交请求和处理结果。这两个阶段中间有事件循环的调度，两者彼此不关联。异步方法则通常在第一个阶段提交请求后立即返回，因为异常并不一定发生在这个阶段，try/catch的功效在此处不会发挥任何作用。<br>Node在处理异常上形成了一种约定，将异常作为回调函数的第一个实参传回，如果为空值，则表明异步调用没有异常抛出。所以在我们自行编写的异步方法上，也需要去遵循这样一些原则：<br>1）必须执行调用者传入的回调函数；<br>2）正确传递回异常供调用者判断。<br><code>函数嵌套过深</code>：异步调用会导致函数嵌套。<br><code>阻塞代码</code>：JavaScript没有sleep()这样的线程沉睡功能，这样会造成CPU资源被占用，导致其余任何请求都会得不到响应。<br><code>多线程编程</code>：JavaScript是单线程的，随着现今业务的复杂化，对于多核CPU利用的要求也越来越高。浏览器提出了Web Workers，它通过将JavaScript执行与UI渲染分离，可以很好的利用多核CPU为大量的计算服务。前端Web Workers也是一个利用消息机制合理使用多核CPU的理性模型。借助Web Workers的模式，开发人员要更多的去面临跨线程的编程，这对于以往的JavaScript编程经验是较少考虑的。<br><code>异步转同步</code>：Node提供了绝大部分的异步API和少量的同步API，偶尔出现的同步需求将会因为没有同步API让开发者突然无所适从。</p>
-<h2 id="异步编程解决方案"><a href="#异步编程解决方案" class="headerlink" title="异步编程解决方案"></a>异步编程解决方案</h2><p>前面列举了因异步编程带来的一些问题，与异步编程提升的性能成果相比，编程过程看起来似乎没有想象中的那么美好。与问题相比，解决问题的方案总是更多。<br>异步编程的主要解决方案有：<br>ES 6以前：<code>回调函数</code>、<code>事件发布/订阅模式</code>、<code>Promise/Deferred模式</code>、<code>流程控制库</code><br>ES 6：<code>Generator函数</code><br>ES 7: <code>async</code>和<code>await</code></p>
-<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>这是异步编程最基本的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//假定有两个函数f1和f2，后者等待前者的执行结果。</div><div class="line">f1();</div><div class="line">f2();</div><div class="line">//如果f1是一个很耗时的任务，可以考虑改写f1，把f2写成f1的回调函数。</div><div class="line">function f1(callback)&#123;</div><div class="line">　　setTimeout(function () &#123;</div><div class="line">　　　　// f1的任务代码</div><div class="line">　　　　callback();</div><div class="line">　　&#125;, 1000);</div><div class="line">&#125;</div><div class="line">//执行代码就变成下面这样：</div><div class="line">　f1(f2);</div></pre></td></tr></table></figure></p>
-<p>采用这种方式，我们把同步操作变成了异步操作，f1不会堵塞程序运行，相当于先执行程序的主要逻辑，将耗时的操作推迟执行。</p>
-<p>回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合，流程会很混乱，而且每个任务只能指定一个回调函数。</p>
-<h3 id="事件发布-订阅模式"><a href="#事件发布-订阅模式" class="headerlink" title="事件发布/订阅模式"></a>事件发布/订阅模式</h3><p>事件监听器模式是一种广泛用于异步编程的模式，是回调函数的事件化，又称<code>发布/订阅模式</code>。<br>以node为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var events = require(&apos;events&apos;);</div><div class="line">var emitter = new events.EventEmitter();</div><div class="line">//订阅 </div><div class="line">emitter.on(&apos;event1&apos;, function(message)&#123;</div><div class="line">	console.log(message);</div><div class="line">&#125;);</div><div class="line">//发布</div><div class="line">emitter.emit(&apos;event1&apos;, &quot;I am message!&quot;);</div></pre></td></tr></table></figure></p>
-<p><code>事件发布/订阅模式</code>可以实现一个事件与多个回调函数的关联，这些回调函数又称为<code>事件侦听器</code>。通过emit()发布事件后，消息会立即传递给当前事件的所有侦听器执行。侦听器可以灵活的添加和删除，使得事件和具体处理逻辑之间可以很轻松的关联和解耦。<br><code>事件发布/订阅模式</code>自身并无同步和异步调用的问题，但在Node中，emit()调用多半是伴随事件循环而异步触发的，所以我们说事件发布/订阅广泛应用于异步编程。</p>
-<p>Node对事件发布/订阅的机制做了一些额外的处理：       </p>
-<ul>
-<li><strong>如果对一个事件添加了超过10个侦听器，将会得到一条警告。</strong>这一出设计与Node自身单线程运行有关，设计者认为侦听器太多可能会造成内存泄露，所以存在这样一条警告。另一方面，由于事件发布会引起一系列侦听器执行，如果事件相关的侦听器太多，可能存在过多占用CPU的情景。</li>
-<li><strong>为了处理异常，EventEmitter对象对error事件进行了特殊对待。</strong>如果运行期间的错误触发了error事件，EventEmitter会检查是否有对error事件添加过侦听器。如果添加了，这个错误将会交给侦听器处理，否则这个错误将会作为异常抛出。如果外部没有捕获这个异常，将会引起线程退出。</li>
-</ul>
-<h3 id="Promise-Deferred模式"><a href="#Promise-Deferred模式" class="headerlink" title="Promise/Deferred模式"></a>Promise/Deferred模式</h3><p>Promise/Deferred模式其实包含两部分，即<code>Promise</code>和<code>Deferred</code>。</p>
-<h4 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h4><p><strong>Promise/A+规范：</strong></p>
-<ul>
-<li>Promise操作只会处在3种状态的一种：未完成态(pending)、完成态(fulfilled)和失败态(rejected)。</li>
-<li>Promise的状态只会出现从未完成态向完成态或失败态转化，不能逆反。完成态和失败态不能互相转化。</li>
-<li>Promise的状态一旦转化，将不能更改。<br>Promise的状态转化示意图如下：<br><img src="/2017/11/06/async/async1.jpeg" width="400" style="border:none"></li>
-<li>Promise 有一个 then 方法，then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数。第三个函数用于处理进度信息（对进度回调的支持是可选的）。then()方法只接受function对象，其余对象将被忽略。then()方法继续返回Promise对象，以实现链式调用。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">then(fulfilledHandler, errorHandler, progressHandler)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//Promise</div><div class="line">function Promise() &#123;</div><div class="line">    this.handler = &#123;&#125;;</div><div class="line">&#125;</div><div class="line">Promise.prototype.then = function (onFulfilled, onRejected) &#123;</div><div class="line">    var handler = &#123;&#125;</div><div class="line">    if (typeof onFulfilled === &apos;function&apos;) &#123;</div><div class="line">        handler.resolve = onFulfilled</div><div class="line">    &#125;</div><div class="line">    if (typeof onRejected === &apos;function&apos;) &#123;</div><div class="line">        handler.reject = onRejected</div><div class="line">    &#125;</div><div class="line">    this.handler = handler</div><div class="line">    return this</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="Deferred"><a href="#Deferred" class="headerlink" title="Deferred"></a>Deferred</h4><p>then()方法所做的事情是将回调函数存放起来。为了完成整个流程，还需要触发执行这些回调函数的地方，实现这些功能的对象通常被称为Deferred，即延迟对象。<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function Deferred() &#123;</div><div class="line"></div><div class="line">    /* 状态：默认 等待态 pending */</div><div class="line">    this.state = &apos;pending&apos;;</div><div class="line"></div><div class="line">    this.promise = new Promise()</div><div class="line">&#125;</div><div class="line"></div><div class="line">Deferred.prototype.resolve = function (obj) &#123;</div><div class="line">    this.state = &apos;fulfilled&apos;</div><div class="line">    var handler = this.promise.handler</div><div class="line">    if (handler &amp;&amp; handler.resolve) &#123;</div><div class="line">        handler.resolve(obj)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Deferred.prototype.reject = function (obj) &#123;</div><div class="line">    this.state = &apos;rejected&apos;</div><div class="line">    var handler = this.promise.handler</div><div class="line">    if (handler &amp;&amp; handler.reject) &#123;</div><div class="line">        handler.reject(obj)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里的状态和方法之间的对应关系图：<br><img src="/2017/11/06/async/async2.png" width="400" style="border:none"><br>Promise和Deferred的差别：Deferred主要是用于内部，用于维护异步模型的状态。Promise则作用于外部，通过then()方法暴露给外部，以添加自定义逻辑。整体关系如下图：<br><img src="/2017/11/06/async/async3.jpeg" width="650" style="border:none"><br>Promise/Deferred模式，将业务中不可变的部分封装在了Deferred中，将可变的部分交给了Promise。</p>
-<h3 id="流程控制库"><a href="#流程控制库" class="headerlink" title="流程控制库"></a>流程控制库</h3><p>这里简单提一下几个主流的流程控制库：<code>尾触发与Next</code>、<code>async</code>、<code>Step</code>、<code>wind</code>;</p>
-<h4 id="尾触发与Next"><a href="#尾触发与Next" class="headerlink" title="尾触发与Next"></a>尾触发与Next</h4><p>除了事件和Promise外，还有一类方法是需要手工调用才能持续执行后续调用的，我们将此类方法叫做<code>尾触发</code>，常见的关键词是next。事实上尾触发目前应用最多的地方是Connect的中间件。</p>
-<h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><p>async是nodejs里的流程控制模块,也可以用在浏览器端,主要是用来控制多个异步调用时的顺序以及依赖。async模块提供了20多个方法用于处理异步的各种协作模式，这里只介绍几种典型用法。</p>
-<ul>
-<li><p>异步的串行执行<code>async.series()</code>;<br>series允许传递两个参数，第一个参数代表要异步执行的所有函数,后一个参数是当前面所有异步执行完之后执行的一个回调函数,只要有一个异步方法异步,则直接执行回调函数,err参数就是异常信息,当所有的异步方法执行成功之后,回调函数里的result保存的前面所有异步方法执行的结果.注意代码里的callback为async自己传递的固定参数不可更改.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//串行执行多个异步方法,使嵌套调用扁平化</div><div class="line">async.series([</div><div class="line">function(callback)&#123;</div><div class="line">    fs.readFile(&apos;../data/file.txt&apos;, &apos;utf8&apos;, callback);</div><div class="line">&#125;,</div><div class="line">function(callback)&#123;</div><div class="line">    fs.readFile(&apos;../data/file1.txt&apos;, &apos;utf8&apos;, callback);</div><div class="line">&#125;],</div><div class="line">function(err, results)&#123;</div><div class="line">    if(err) &#123;</div><div class="line">        console.log(err)</div><div class="line">    &#125;else&#123;</div><div class="line">        console.log(results);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>异步的并行执行<code>async.parallel()</code>;<br>parallel在执行没有依赖关系的异步操作时候，效率还是不错的,回调函数跟上面的series一样,只要有一个异步方法出现异常,则传递异常信息给回调的第一个参数,都成功则results返回包含所有结果的数组.注意代码里的callback为async自己传递的固定参数不可更改.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//并行执行多个异步方法,并返回多个结果组成的数组</div><div class="line">async.parallel([</div><div class="line">function(callback)&#123;</div><div class="line">    fs.readFile(&apos;../data/file.txt&apos;, &apos;utf8&apos;, callback);</div><div class="line">&#125;,</div><div class="line">function(callback)&#123;</div><div class="line">    fs.readFile(&apos;../data/file1.txt&apos;, &apos;utf8&apos;, callback);</div><div class="line">&#125;],</div><div class="line">function(err, results)&#123;</div><div class="line">    if(err) &#123;</div><div class="line">        console.log(err)</div><div class="line">    &#125;else&#123;</div><div class="line">        console.log(results);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>异步调用的依赖处理<code>async.waterfall()</code>;<br>waterfall方法就是用来处理异步方法之间的依赖的,这里跟上面的区别在于callback方法传递了两参数,null,content, 第一个参数代表是否异常;第二个参数代码当前异步方法返回的结果,这个值将会作为下一个异步方法的参数,比如这里的function(arg1, callback) ,arg1参数就是前一个异步方法返回传递的结果,假如后面的异步方法不需要前面的依赖则不用传递这个参数,像上面的第二异步方法那样。注意代码里的callback为async自己传递的固定参数不可更改.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//前面异步方法返回的结果作为后面异步方法的条件,依次串行执行异步方法,最后返回最后一个异步方法的结果</div><div class="line">async.waterfall([</div><div class="line">function(callback)&#123;</div><div class="line">    fs.readFile(&apos;../data/file.txt&apos;, &apos;utf8&apos;, function(err, content)&#123;</div><div class="line">        callback(err, content);</div><div class="line">    &#125;)</div><div class="line">&#125;,</div><div class="line">function(arg1, callback)&#123;</div><div class="line">    fs.readFile(&apos;../data/&apos; + arg1, &apos;utf8&apos;, callback);</div><div class="line">&#125;], </div><div class="line">function(err, results)&#123;</div><div class="line">    if(err) &#123;</div><div class="line">        console.log(err)</div><div class="line">    &#125;else&#123;</div><div class="line">        console.log(results);</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>自动依赖处理<code>async.auto()</code>;<br>auto方法会根据异步方法里的依赖关系,保证在依赖方法执行完成之后再去执行异步方法,auto允许传递两个参数,第一个参数是异步方法关系的定义,是一个key-vale方式的键值对,值传递单个函数则表示没有依赖,传递数组的话,数组内前面写上依赖的键值,最后写上异步方法.注意这里的异步方法会依赖前面异步方法返回的结果,所以callback会传递两参数,异常和结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//智能根据配置文件执行异步方法,支持一对多的情况</div><div class="line">var deps = &#123;</div><div class="line">    &apos;file&apos;: function(callback)&#123;</div><div class="line">        fs.readFile(&apos;../data/file.txt&apos;, &apos;utf8&apos;, function(err, content)&#123;</div><div class="line">            callback(err, content); // =&gt; file1.txt</div><div class="line">        &#125;);</div><div class="line">    &#125;,</div><div class="line">    &apos;file1&apos;: function(callback)&#123;</div><div class="line">        fs.readFile(&apos;../data/file2.txt&apos;, &apos;utf8&apos;, function(err, content)&#123;</div><div class="line">            callback(err, content); // =&gt; ../data/</div><div class="line">        &#125;);</div><div class="line">    &#125;,</div><div class="line">    &apos;action&apos;: [&apos;file&apos;, &apos;file1&apos;, function(callback, result)&#123;</div><div class="line">        fs.readFile(result.file1 + result.file, &apos;utf8&apos;, function(err, content)&#123;</div><div class="line">            callback(err, &#123; result: content, xuwm: &apos;feenan&apos;&#125;);</div><div class="line">        &#125;);</div><div class="line">    &#125;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">async.auto(deps, function(err, result)&#123;</div><div class="line">    console.log(result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h4><p>Step它比async更轻量，在API的暴露上也更具备一致性，因为它只有一个接口Step。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Step(task1,task2,task3);</div></pre></td></tr></table></figure></p>
-<ul>
-<li><p>串行任务执行 （默认）<br>Step接受任意数量的任务，所有的任务都将会串行依次执行。Step 利用 this 对象指针来封装工作流。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Step(  </div><div class="line">  function readSelf() &#123;  </div><div class="line">    fs.readFile(__filename, this); // 把 this 送入 readFile 的异步参数中。此时 this 其类型为 function  </div><div class="line">    // 注意这里无须 return 任何值  </div><div class="line">  &#125;,  </div><div class="line">  function capitalize(err, text) &#123; // err 为错误信息，如果有则抛出异常  </div><div class="line">    if (err) throw err;  </div><div class="line">    return text.toUpperCase();     // text 为 上个步骤 readFile 的值也就是文件内容。注意此处有返回值供下一步所用。  </div><div class="line">  &#125;,  </div><div class="line">  function showIt(err, newText) &#123;  </div><div class="line">    if (err) throw err;  </div><div class="line">    console.log(newText);  </div><div class="line">  &#125;  </div><div class="line">);</div></pre></td></tr></table></figure>
-</li>
-<li><p>并行任务执行<br>this具有一个parallel()方法，它告诉Step，需要等待所有任务完成时才进行下一个任务。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Step(  </div><div class="line">      // 同时执行两项任务 Loads two files in parallel  </div><div class="line">      function loadStuff() &#123;  </div><div class="line">        fs.readFile(__filename, this.parallel());  </div><div class="line">        fs.readFile(&quot;/etc/passwd&quot;, this.parallel());  </div><div class="line">      &#125;,  </div><div class="line">      // 获取结果 Show the result when done  </div><div class="line">      function showStuff(err, code, users) &#123;  </div><div class="line">        if (err) throw err;  </div><div class="line">        console.log(code);  </div><div class="line">        console.log(users);  </div><div class="line">      &#125;  </div><div class="line">)</div></pre></td></tr></table></figure>
-</li>
-<li><p>结果分组<br>如果不确定多个异步任务的数量，可以使用 this.group()。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Step(  </div><div class="line">  function readDir() &#123;  </div><div class="line">    fs.readdir(__dirname, this);  </div><div class="line">  &#125;,  </div><div class="line">  function readFiles(err, results) &#123;  </div><div class="line">    if (err) throw err;  </div><div class="line">    // 创建 group，其实内部创建一个 results 数组，保存结果  </div><div class="line">    var group = this.group();  </div><div class="line">    results.forEach(function (filename) &#123;  </div><div class="line">      if (/\.js$/.test(filename)) &#123;  </div><div class="line">        fs.readFile(__dirname + &quot;/&quot; + filename, &apos;utf8&apos;, group()); // group() 内部其逻辑与 this.parallel，也是调度 index/pending。  </div><div class="line">      &#125;  </div><div class="line">    &#125;);  </div><div class="line">  &#125;,  </div><div class="line">  function showAll(err , files) &#123;  </div><div class="line">    if (err) throw err;  </div><div class="line">    console.dir(files);  </div><div class="line">  &#125;  </div><div class="line">);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="wind"><a href="#wind" class="headerlink" title="wind"></a>wind</h4><p>Wind.js是很有特点的一个JavaScript异步编程类库（其前身为Jscex）, Wind.js的唯一目的便是“改善编程体验”，改善的“程度”以及改善的“方式”便是Wind.js与其他异步流程控制方案最大的区别。Wind.js的设计思路便是将这种抽象构建为JavaScript本身。通过$await函数标识对代码进行自动重写，JIT编译(Just in Time)，从而避免人工的预编译。<br>在wind的世界里巧妙的利用了eval()访问上下文的特性。<br>wind提供了$await()方法实现等待完成异步方法。但事实上，它并不是一个方法，也不存在于上下文中，只是一个等待的占位符，告知编译器这里需要等待。</p>
-<ul>
-<li><p>串行任务执行 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">var Wind = require(&quot;wind&quot;);</div><div class="line">var Task =  Wind.Async.Task;</div><div class="line"></div><div class="line">var A = eval(Wind.compile(&quot;async&quot;, function () &#123;</div><div class="line">    console.log(&quot;Start A&quot;);</div><div class="line">    $await(Wind.Async.sleep(3000));</div><div class="line">    console.log(&quot;Finish A&quot;);</div><div class="line">&#125;));</div><div class="line"></div><div class="line">var B = eval(Wind.compile(&quot;async&quot;, function () &#123;</div><div class="line">    console.log(&quot;Start B&quot;);</div><div class="line">    $await(Wind.Async.sleep(5000));</div><div class="line">    console.log(&quot;Finish B&quot;);</div><div class="line">&#125;));</div><div class="line"></div><div class="line">var C = eval(Wind.compile(&quot;async&quot;, function () &#123;</div><div class="line">    console.log(&quot;Start C&quot;);</div><div class="line">    console.log(&quot;Finish C&quot;);</div><div class="line">&#125;));</div><div class="line"></div><div class="line">var task = eval(Wind.compile(&quot;async&quot;, function () &#123;</div><div class="line">    $await(A());</div><div class="line">    $await(B());</div><div class="line">    $await(C());</div><div class="line">&#125;));</div><div class="line">task().start();</div><div class="line"></div><div class="line">//结果 </div><div class="line">Start A</div><div class="line">Finish A</div><div class="line">Start B</div><div class="line">Finish B</div><div class="line">Start C</div><div class="line">Finish C</div></pre></td></tr></table></figure>
-</li>
-<li><p>串行 + 并行任务执行 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">var Wind = require(&quot;wind&quot;);</div><div class="line">var Task =  Wind.Async.Task;</div><div class="line"></div><div class="line">var A = eval(Wind.compile(&quot;async&quot;, function () &#123;</div><div class="line">    console.log(&quot;Start A&quot;);</div><div class="line">    $await(Wind.Async.sleep(3000));</div><div class="line">    console.log(&quot;Finish A&quot;);</div><div class="line">&#125;));</div><div class="line"></div><div class="line">var B = eval(Wind.compile(&quot;async&quot;, function () &#123;</div><div class="line">    console.log(&quot;Start B&quot;);</div><div class="line">    $await(Wind.Async.sleep(5000));</div><div class="line">    console.log(&quot;Finish B&quot;);</div><div class="line">&#125;));</div><div class="line"></div><div class="line">var C = eval(Wind.compile(&quot;async&quot;, function () &#123;</div><div class="line">    console.log(&quot;Start C&quot;);</div><div class="line">    console.log(&quot;Finish C&quot;);</div><div class="line">&#125;));</div><div class="line"></div><div class="line">var task = eval(Wind.compile(&quot;async&quot;, function () &#123;</div><div class="line">    $await(Task.whenAll(A(),B()));</div><div class="line">    $await(C());</div><div class="line">&#125;));</div><div class="line">task().start();</div><div class="line"></div><div class="line">//结果</div><div class="line">Start A</div><div class="line">Start B</div><div class="line">Finish A</div><div class="line">Finish B</div><div class="line">Start C</div><div class="line">Finish C</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Generator-函数"><a href="#Generator-函数" class="headerlink" title="Generator 函数"></a>Generator 函数</h3><p>Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。</p>
-<ul>
-<li><strong>从语法上，Generator 函数是一个状态机，封装了多个内部状态。执行 Generator 函数会返回一个遍历器对象。</strong>也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</li>
-<li><strong>形式上，Generator 函数是一个普通函数</strong>，但是有两个特征。一是，<code>function</code>关键字与函数名之间有一个星号；二是，函数体内部使用<code>yield</code>表达式，定义不同的内部状态。</li>
-<li><p>Generator 函数的调用方法与普通函数一样，也是在函数名后面加上一对圆括号。不同的是，调用 Generator 函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象。下一步，必须调用遍历器对象的<code>next</code>方法，使得指针移向下一个状态。<br>代码示例如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function* helloWorldGenerator() &#123;</div><div class="line">  yield &apos;hello&apos;;</div><div class="line">  yield &apos;world&apos;;</div><div class="line">  return &apos;ending&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var hw = helloWorldGenerator();</div><div class="line">//done属性的值表示遍历状态，true表示遍历已经结束，false表示遍历还没有结束。</div><div class="line">hw.next()</div><div class="line">// &#123; value: &apos;hello&apos;, done: false &#125;</div><div class="line"></div><div class="line">hw.next()</div><div class="line">// &#123; value: &apos;world&apos;, done: false &#125;</div><div class="line"></div><div class="line">hw.next()</div><div class="line">// &#123; value: &apos;ending&apos;, done: true &#125;</div><div class="line"></div><div class="line">hw.next()</div><div class="line">// &#123; value: undefined, done: true &#125;</div></pre></td></tr></table></figure>
-<p>  也就是说，每次调用<code>next</code>方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个<code>yield</code>表达式（或<code>return</code>语句）为止。换言之，Generator 函数是分段执行的，<code>yield</code>表达式是暂停执行的标记，而<code>next</code>方法可以恢复执行。</p>
-</li>
-<li>ES6 没有规定，function关键字与函数名之间的星号，写在哪个位置。这导致下面的写法都能通过。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function * foo(x, y) &#123; ··· &#125;</div><div class="line">function *foo(x, y) &#123; ··· &#125;</div><div class="line">function* foo(x, y) &#123; ··· &#125;</div><div class="line">function*foo(x, y) &#123; ··· &#125;  </div><div class="line">//由于 Generator 函数仍然是普通函数，所以一般的写法是上面的第三种，即星号紧跟在</div><div class="line">function关键字后面。</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>总结：调用 Generator 函数，返回一个遍历器对象，代表 Generator 函数的内部指针。以后，每次调用遍历器对象的next方法，就会返回一个有着value和done两个属性的对象。value属性表示当前的内部状态的值，是yield表达式后面那个表达式的值；done属性是一个布尔值，表示是否遍历结束。</strong></p>
-<h4 id="yield-表达式"><a href="#yield-表达式" class="headerlink" title="yield 表达式"></a>yield 表达式</h4><p>由于 Generator 函数返回的遍历器对象，只有调用<code>next</code>方法才会遍历下一个内部状态，所以其实提供了一种可以暂停执行的函数。<code>yield</code>表达式就是暂停标志。 </p>
-<ul>
-<li><p><code>yield</code>表达式只能用在 Generator 函数里面，用在其他地方都会报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(function ()&#123;</div><div class="line">  yield 1;</div><div class="line">&#125;)()</div><div class="line">// SyntaxError: Unexpected number</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>yield</code>表达式如果用在另一个表达式之中，必须放在圆括号里面。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function* demo() &#123;</div><div class="line">  console.log(&apos;Hello&apos; + yield); // SyntaxError</div><div class="line">  console.log(&apos;Hello&apos; + yield 123); // SyntaxError</div><div class="line"></div><div class="line">  console.log(&apos;Hello&apos; + (yield)); // OK</div><div class="line">  console.log(&apos;Hello&apos; + (yield 123)); // OK</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>yield</code>表达式用作函数参数或放在赋值表达式的右边，可以不加括号。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function* demo() &#123;</div><div class="line">  foo(yield &apos;a&apos;, yield &apos;b&apos;); // OK</div><div class="line">  let input = yield; // OK</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>遍历器对象的<code>next</code>方法的运行逻辑如下：</p>
-<ul>
-<li>遇到<code>yield</code>表达式，就暂停执行后面的操作，并将紧跟在<code>yield</code>后面的那个表达式的值，作为返回的对象的<code>value</code>属性值。</li>
-<li>下一次调用<code>next</code>方法时，再继续往下执行，直到遇到下一个<code>yield</code>表达式。</li>
-<li>如果没有再遇到新的<code>yield</code>表达式，就一直运行到函数结束，直到<code>return</code>语句为止，并将<code>return</code>语句后面的表达式的值，作为返回的对象的<code>value</code>属性值。</li>
-<li>如果该函数没有<code>return</code>语句，则返回的对象的<code>value</code>属性值为<code>undefined</code>。</li>
-</ul>
-<h4 id="next-方法"><a href="#next-方法" class="headerlink" title="next 方法"></a>next 方法</h4><p><code>yield</code>表达式本身没有返回值，或者说总是返回<code>undefined</code>。<code>next</code>方法可以带一个参数，该参数就会被当作上一个<code>yield</code>表达式的返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function* f() &#123;</div><div class="line">  for(var i = 0; true; i++) &#123;</div><div class="line">    var reset = yield i;</div><div class="line">    if(reset) &#123; i = -1; &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var g = f();</div><div class="line"></div><div class="line">g.next() // &#123; value: 0, done: false &#125;</div><div class="line">g.next() // &#123; value: 1, done: false &#125;</div><div class="line">g.next(true) // &#123; value: 0, done: false &#125;</div></pre></td></tr></table></figure></p>
-<h3 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h3><p>async 函数是什么？它就是 Generator 函数的语法糖。表现上就是将 Generator 函数的星号（<code>*</code>）替换成<code>async</code>，将<code>yield</code>替换成<code>await</code>，仅此而已。<br>示例代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//依次读取两个文件</div><div class="line">const fs = require(&apos;fs&apos;);</div><div class="line"></div><div class="line">const readFile = function (fileName) &#123;</div><div class="line">  return new Promise(function (resolve, reject) &#123;</div><div class="line">    fs.readFile(fileName, function(error, data) &#123;</div><div class="line">      if (error) return reject(error);</div><div class="line">      resolve(data);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line">//Generator 函数</div><div class="line">const gen = function* () &#123;</div><div class="line">  const f1 = yield readFile(&apos;/etc/fstab&apos;);</div><div class="line">  const f2 = yield readFile(&apos;/etc/shells&apos;);</div><div class="line">  console.log(f1.toString());</div><div class="line">  console.log(f2.toString());</div><div class="line">&#125;;</div><div class="line">//写成async函数，就是下面这样。</div><div class="line">const asyncReadFile = async function () &#123;</div><div class="line">  const f1 = await readFile(&apos;/etc/fstab&apos;);</div><div class="line">  const f2 = await readFile(&apos;/etc/shells&apos;);</div><div class="line">  console.log(f1.toString());</div><div class="line">  console.log(f2.toString());</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p><code>async</code>函数对 Generator 函数的改进，体现在以下四点。</p>
-<ul>
-<li><p>内置执行器。<br>Generator 函数的执行必须靠执行器，所以才有了<code>co</code>模块，<strong>而<code>async</code>函数自带执行器</strong>。也就是说，<code>async</code>函数的执行，与普通函数一模一样，只要一行。而Generator 函数，需要调用<code>next</code>方法，或者用<code>co</code>模块，才能真正执行，得到最后结果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">asyncReadFile();</div></pre></td></tr></table></figure>
-</li>
-<li><p>更好的语义。<br><code>async</code>和<code>await</code>，比起星号和<code>yield</code>，语义更清楚了。<code>async</code>表示函数里有异步操作，<code>await</code>表示紧跟在后面的表达式需要等待结果。</p>
-</li>
-<li>更广的适用性。<br><code>co</code>模块约定，<code>yield</code>命令后面只能是 Thunk 函数或 Promise 对象，而<code>async</code>函数的<code>await</code>命令后面，可以是Promise 对象和原始类型的值（数值、字符串和布尔值，但这时等同于同步操作）。</li>
-<li>返回值是 Promise。<br><code>async</code>函数的返回值是 Promise 对象，这比 Generator 函数的返回值是 Iterator 对象方便多了。你可以用<code>then</code>方法指定下一步的操作。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">async function getStockPriceByName(name) &#123;</div><div class="line">  const symbol = await getStockSymbol(name);</div><div class="line">  const stockPrice = await getStockPrice(symbol);</div><div class="line">  return stockPrice;</div><div class="line">&#125;</div><div class="line"></div><div class="line">getStockPriceByName(&apos;goog&apos;).then(function (result) &#123;</div><div class="line">  console.log(result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>async</strong></p>
-<ul>
-<li><code>async</code>函数返回一个 Promise 对象。</li>
-<li><code>async</code>函数内部<code>return</code>语句返回的值，会成为<code>then</code>方法回调函数的参数。</li>
-<li><code>async</code>函数内部抛出错误，会导致返回的 Promise 对象变为<code>reject</code>状态。抛出的错误对象会被<code>catch</code>方法回调函数接收到。</li>
-<li><code>async</code>函数返回的 Promise 对象，必须等到内部所有<code>await</code>命令后面的 Promise 对象执行完，才会发生状态改变，除非遇到<code>return</code>语句或者抛出错误。也就是说<code>async</code>函数内部的异步操作执行完，才会执行<code>then</code>方法指定的回调函数。</li>
-</ul>
-<p><strong>await</strong></p>
-<ul>
-<li>正常情况下，<code>await</code>命令后面是一个 Promise 对象。如果不是，会被转成一个立即<code>resolve</code>的 Promise 对象。</li>
-<li><code>await</code>命令后面的 Promise 对象如果变为<code>reject</code>状态，则<code>reject</code>的参数会被<code>catch</code>方法的回调函数接收到。</li>
-<li>只要一个<code>await</code>语句后面的 Promise 变为<code>reject</code>，那么整个<code>async</code>函数都会中断执行。</li>
-</ul>
-
-          
+          异步编程的优势与难点优势：非阻塞I/O可以使CPU与I/O并不相互依赖等待，让资源得到更好的利用。对于网络应用而言，并行带来的想象空间更大，延展而开的是分布式和云。并行使得各个单点之间能够更有效地组织起来。
+难点：异常处理、函数嵌套过深、阻塞代码、多线程编程、异步转同步。异常处理：过去我们处理异常时
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/06/async/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -539,36 +553,22 @@
       
         
           
-            <h2 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h2><p>I/O（input/output），即输入/输出端口。每个设备都会有一个专用的I/O地址，用来处理自己的输入输出信息。</p>
-<h3 id="I-O管理示意图"><a href="#I-O管理示意图" class="headerlink" title="I/O管理示意图:"></a>I/O管理示意图:</h3><p><img src="/2017/11/03/IO/io6.jpeg" width="600" style="border:none"></p>
-<h3 id="I-O的特点"><a href="#I-O的特点" class="headerlink" title="I/O的特点"></a>I/O的特点</h3><ul>
-<li><code>I/O</code>性能经常称为系统性能的瓶颈</li>
-<li>操作系统庞大复杂的原因之一：资源多、杂，并发，均来自<code>I/O</code></li>
-<li>与其他功能联系密切，特别是文件系统。</li>
-</ul>
-<h3 id="常见的I-O流"><a href="#常见的I-O流" class="headerlink" title="常见的I/O流"></a>常见的I/O流</h3><p><img src="/2017/11/03/IO/io7.jpeg" width="660" style="border:none"></p>
-<h2 id="为什么要异步I-O"><a href="#为什么要异步I-O" class="headerlink" title="为什么要异步I/O"></a>为什么要异步I/O</h2><p>Web应用已经不再是单台服务器就能胜任的时代，在跨网络的结构下，并发已经是现代编程中的标准配备了。具体到实处，则可以从<strong>用户体验</strong>和<strong>资源分配</strong>这两个方面说起。</p>
-<ul>
-<li><p><strong>用户体验</strong> 因为在浏览器中JavaScript在单线程上执行，而且它还与UI渲染共用一个线程，这意味着JavaScript在执行的时候UI渲染和响应是处于停滞状态。</p>
-</li>
-<li><p><strong>资源分配</strong> 主流方法有两种：<code>单线程串行依次执行</code>，<code>多线程并行完成</code><br><strong>多线程缺点：</strong> 多线程并行的代价在于创建线程和执行期线程上下文切换的开销较大，且在复杂业务中，多线程编程经常面临锁、状态同步等问题。<br><strong>单线程缺点：</strong> 单线程串行执行的缺点在于性能，任意一个略慢的任务都会导致后续执行代码被阻塞。</p>
-</li>
-</ul>
-<h2 id="异步I-O与非阻塞I-O"><a href="#异步I-O与非阻塞I-O" class="headerlink" title="异步I/O与非阻塞I/O"></a>异步I/O与非阻塞I/O</h2><p>在听到Node的介绍时，我们时常会听到异步、非阻塞、回调、事件这些词混合在一起推介出来，其中异步与非阻塞听起来似乎是同一回事。从实际效果而言，异步和非阻塞都达到了我们并行I/O的目的。但是从计算机内核I/O而言，异步/同步和阻塞/非阻塞实际上是两回事。<br>操作系统内核对I/O只有两种方式：<code>阻塞</code>与<code>非阻塞</code>。<br><strong>阻塞I/O</strong><br>在调用阻塞I/O时，应用程序需要等待I/O完成才返回结果。<br><img src="/2017/11/03/IO/io8.png" width="400" style="border:none"></p>
-<p>阻塞I/O的一个特点是调用之后一定要等到系统内核层面完成所有操作后，调用才结束。这造成CPU等待I/O，浪费时间，CPU的处理能力不能得到充分利用。</p>
-<p><strong>非阻塞I/O</strong><br>非阻塞I/O与阻塞I/O的区别在于阻塞I/O完成整个获取数据的过程，而非阻塞I/O则不带数据直接返回，要获取数据，还需要通过文件描述符再次读取。<br><img src="/2017/11/03/IO/io9.png" width="400" style="border:none"></p>
-<p>但是非阻塞I/O也存在一些问题。由于完整的I/O并没有完成，立即返回的并不是业务层期望的数据，而仅仅是当前调用的状态。为了获取完整的数据，应用程序需要重复调用I/O操作来确认是否完成。这种重复调用判断操作是否完成的技术叫做<code>轮询</code>。</p>
-<p><strong>轮询</strong><br>轮询技术主要有以下这些：<code>read</code>、<code>select</code> 、<code>poll</code> 、<code>epoll</code> 、<code>kqueue</code>。<br><code>read</code>是性能最低的一种，它通过重复调用来检查I/O的状态来完成完整数据读取。<br><code>select</code>是在read的基础上改进的一种方案，通过对文件描述符上的事件状态来进行判断。 select具有一个较弱的限制，它最多可以同时检查1024个文件描述符。<br><code>poll</code>改方案较select有所改进，采用链表的方式避免数组长度的限制，其次它能避免不要的检查。但是当文件描述符较多的时候，它的性能还是十分低下的。<br><code>epoll</code>该方案是Linux下效率最高的I/O事件通知机制，在进入轮询的时候如果没有检查到I/O事件，将会进行休眠，直到事件发生将它唤醒。它是真实利用了事件通知、执行回调的方式，而不是遍历查询，所有不会浪费CPU，执行效率高。<br><code>kqueue</code>该方案的实现方式与epoll类似，不过它仅在FreeBSD系统下存在。</p>
-<h2 id="异步I-O操作调用流程"><a href="#异步I-O操作调用流程" class="headerlink" title="异步I/O操作调用流程"></a>异步I/O操作调用流程</h2><p><img src="/2017/11/03/IO/io1.jpeg" width="400" style="border:none"><br>主线程就是nodejs所谓的单线程，也就是用户javascript代码运行的线程。<br>IO线程是由Libuv(Linux下由libeio具体实现；window下则由IOCP具体实现)管理的线程池控制的，本质上是多线程。即采用了线程池与阻塞IO模拟了异步IO。<br><img src="/2017/11/03/IO/io2.jpeg" width="400" style="border:none"></p>
-<h2 id="Node的异步I-O"><a href="#Node的异步I-O" class="headerlink" title="Node的异步I/O"></a>Node的异步I/O</h2><p>Node完成整个异步I/O环节的有<code>事件循环</code>、<code>观察者</code>、<code>请求对象</code>和<code>执行回调</code>。</p>
-<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><p>Node的自身的执行模型 —— <code>事件循环</code>，正是它使得回调函数十分普遍。<br>在进程启动时，Node便会创建一个类似于while(true)的循环，每执行一次循环体的过程我们称为Tick。每个Tick的过程就是查看是否有事件待处理，如果有，就取出事件及其相关的回调函数。如果存在关联的回调函数，就执行它们。然后进入下个循环体，如果不再有事件处理，就退出进程。<br>流程图如下：<br><img src="/2017/11/03/IO/io3.png" width="400" style="border:none"></p>
-<h3 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h3><p>在每个Tick的过程中，如何判断是否有事件需要处理呢？这里必须要引入的概念是<code>观察者</code>。每个事件循环中有一个或多个观察者，而判断是否有事件要处理的过程就是向这些观察者询问是否有要处理的事件。一个观察者里可能有多个事件。<br>浏览器采用了类似的机制。事件可能来自用户的点击或者加载某些文件时产生，而这些产生的事件都有对应的观察者。在Node中，事件主要来源于网络请求、文件I/O等，这些事件对应的观察者有文件I/O观察者、网络I/O观察者等。观察者将事件进行了分类。<br>事件循环是一个典型的<code>生产者/消费者模型</code>。异步I/O、网络请求等则是事件的生产者，源源不断为Node提供不同类型的事件，这些事件被传递到对应的观察者那里，事件循环则从观察者那里取出事件并处理。<br>在<code>Windows</code>下，这个循环基于IOCP创建，而在<code>*nix</code>下则基于多线程创建。</p>
-<h3 id="请求对象"><a href="#请求对象" class="headerlink" title="请求对象"></a>请求对象</h3><p>对于Node中的异步I/O调用而言，回调函数却不由开发者来调用。那么从我们发出调用后，到回调函数被执行，中间发生了什么呢？事实上，从JavaScript发起调用到内核执行完I/O操作的过渡过程中，存在一种中间产物，它叫做<code>请求对象</code>。<br>以Windows下的文件操作为例（ 利用IOCP实现 ），新建一个文件yzx_file.js ，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">var path = require(&apos;path&apos;);</div><div class="line"></div><div class="line">fs.readFile(__dirname + &apos;/test01.txt&apos;, &#123;flag: &apos;r+&apos;, encoding: &apos;utf8&apos;&#125;, function (err, data) &#123;</div><div class="line"></div><div class="line">    console.log(data); //打印test01.txt文本内容</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/11/03/IO/io4.jpeg" width="400" style="border:none"><br>整个文件操作的调用过程如下：<br>1）首先，用户写的javascript调用Node的核心模块fs.js ；<br>2）接下来，Node的核心模块调用C++内建模块node_file.cc ；<br>3）最后，根据不同平台（Linux或者window），内建模块通过libuv进行系统调用<br>至此，JavaScript调用立即返回，由JavaScript层面发起的异步调用的第一阶段就此结束。JavaScript线程可以继续执行当前任务的后续操作。当前的I/O操作在线程池中等待执行，不管它是否阻塞I/O，都不会影响到JavaScript线程的后续执行，如此就达到了异步的目的。</p>
-<p>请求对象是异步I/O过程中的重要中间产物，所有的状态都保存在这个对象中，包括送入线程池等待执行以及I/O操作完毕后的回调函数。</p>
-<h3 id="执行回调"><a href="#执行回调" class="headerlink" title="执行回调"></a>执行回调</h3><p>组装好请求对象、送入I/O线程池等待执行，实际上完成了异步I/O的第一部分，回调通知是第二部分。<br>线程池中的I/O操作调用完毕之后，会将获取的结果存储在req-&gt;result属性上，然后调用PostQueuedCompletionStatus()通知 IOCP,告知当前对象操作已经完成。<br>PostQueuedCompletionStatus()方法的作用是向 IOCP 提交执行状态，并将线程归还线程池。在这个过程中，我们其实还动用了事件循环的I/O观察者。在每次Tick的执行中，它会调用 IOCP 相关的GetQueuedCompletionStatus()方法检查线程池中是否有执行完的请求，如果存在，会将请求对象加入到I/O观察者的队列中，然后将其当做事件处理。<br>I/O观察者回调函数的行为就是取出请求对象的result属性作为参数，取出oncomplete_sym属性作为方法，然后调用执行，以此达到调用JavaScript中传入的回调函数的目的。<br>至此，整个异步I/O的流程完全结束。如下图：<br><img src="/2017/11/03/IO/io5.jpeg" width="660" style="border:none"><br><code>事件循环</code>、<code>观察者</code>、<code>请求对象</code>、<code>I/O线程池</code>这四者共同构成了Node异步I/O模型的基本要素。</p>
+          I/OI/O（input/output），即输入/输出端口。每个设备都会有一个专用的I/O地址，用来处理自己的输入输出信息。
+I/O管理示意图:
+I/O的特点
+I/O性能经常称为系统性能的瓶颈
+操作系统庞大复杂的原因之一：资源多、杂，并发，均来自I/O
+与其他功能联系密切，特别是文件系统。
 
-          
+常见的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/03/IO/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -686,172 +686,15 @@
       
         
           
-            <p>在<code>ES6</code>之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有<code>CommonJS</code>（服务器）、<code>AMD</code>（浏览器）和<code>CMD</code>。在<code>ES6</code>中，定义了<code>import</code>和<code>export</code>两种语法声明，从而在语言面实现了模块功能。</p>
-<h2 id="ECMAScript-6之前的模块化"><a href="#ECMAScript-6之前的模块化" class="headerlink" title="ECMAScript 6之前的模块化"></a>ECMAScript 6之前的模块化</h2><ul>
-<li>CommonJS</li>
-<li>AMD</li>
-<li>CMD</li>
-</ul>
-<p><strong>前景</strong>：<br>在JavaScript的发展历程中，它主要在浏览器前端发光发热。由于官方规范（ECMAScript）规范化的时间较早，规范涵盖范畴非常小。随着Web2.0的推进，JavaScript规范的缺陷就显露出来了。</p>
-<ul>
-<li><strong>没有模块系统</strong></li>
-<li><strong>标准库较少</strong> ECMAScript仅定义了部分核心库，对于文件系统，I/O流等常见需求却没有标准的API。 </li>
-<li><strong>没有标准接口</strong> 在JavaScript中，几乎没有定义过如Web服务器或者数据库之类的标准统一接口</li>
-<li><strong>缺乏包管理系统</strong> 这导致JavaScript应用中基本没有自动加载和安装依赖的能力。</li>
-</ul>
-<h3 id="CommomJS"><a href="#CommomJS" class="headerlink" title="CommomJS"></a>CommomJS</h3><p>CommonJS规范的提出，主要是为了弥补当前JavaScript没有标准的缺陷。它希望js可以在任何地方运行，不只是浏览器中。CommonJS规范涵盖了<code>模块</code>、<code>二进制</code>、<code>Buffer</code>、<code>字符集编码</code>、<code>I/O流</code>、<code>进程环境</code>、<code>文件系统</code>、<code>套接字</code>、<code>单元测试</code>、<code>Web服务器网关接口</code>、<code>包管理</code>等。这里我们只阐述CommomJS模块规范。</p>
-<h5 id="CommomJS的模块规范"><a href="#CommomJS的模块规范" class="headerlink" title="CommomJS的模块规范"></a>CommomJS的模块规范</h5><p>CommonJS对模块的定义十分简单，主要分为<code>模块引用</code>、<code>模块定义</code>和<code>模块标识</code>3个部分。</p>
-<ul>
-<li><h6 id="模块引用"><a href="#模块引用" class="headerlink" title="模块引用"></a>模块引用</h6><p>在CommonJS规范中，存在<code>require()</code>方法，这个方法接受模块标识，以此引入一个模块的API到当前上下文中。require命令的基本功能是，读入并执行一个JavaScript文件，然后返回<code>module.exports</code>对象。如果没有发现指定模块，会报错。<br>模块引用的示例代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var main=require(&apos;main&apos;);</div><div class="line">//等同于</div><div class="line">var main=require(&apos;main.js&apos;);</div></pre></td></tr></table></figure>
-</li>
-<li><h6 id="模块定义"><a href="#模块定义" class="headerlink" title="模块定义"></a>模块定义</h6><p>在模块中，上下文提供<code>require()</code>方法来引入外部模块。对应引入的功能，上下文提供了<code>exports</code>对象用于导出当前模块的方法或变量，并且它是唯一导出的出口（exports 变量，指向 module.exports）。在模块中，还存在一个<code>module</code>对象，它代表模块自身，而<code>exports</code>是<code>module</code>的属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// main.js</div><div class="line">var counter = 3;</div><div class="line">function incCounter() &#123;</div><div class="line">  counter++;</div><div class="line">&#125;</div><div class="line">//如果一个模块的对外接口，就是一个单一的值，</div><div class="line">//不能使用exports输出，只能使用module.exports输出</div><div class="line">module.exports = &#123;</div><div class="line">  counter: counter, </div><div class="line">  incCounter: incCounter,</div><div class="line">&#125;;</div><div class="line">//sum.js</div><div class="line">var main = require(&apos;main&apos;);</div><div class="line">exports.add = function()&#123;</div><div class="line">    return main.incCounter();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><h6 id="模块标识"><a href="#模块标识" class="headerlink" title="模块标识"></a>模块标识</h6><p>模块标识其实就是传递给<code>require()</code>方法的参数，它必须是符合小驼峰命名的字符串，或者以<code>.</code>、<code>..</code>开头的相对路径，或者绝对路径。require命令用于加载文件，后缀名默认为<code>.js</code>。<br>根据参数的不同格式，require命令去不同路径寻找模块文件。<br><strong>加载规则</strong><br>  （1) 如果参数字符串以<code>/</code>开头，则表示加载的是一个位于绝对路径的模块文件。比如，<code>require(&#39;/home/marco/foo.js&#39;)</code>将加载<code>/home/marco/foo.js</code>。<br>  （2)如果参数字符串以<code>./</code>开头，则表示加载的是一个位于相对路径（跟当前执行脚本的位置相比）的模块文件。比如，<code>require(&#39;./circle&#39;)</code>将加载当前脚本同一目录的<code>circle.js</code>。<br>  （3)如果参数字符串不以<code>./</code>或<code>/</code>开头，则表示加载的是一个默认提供的核心模块（位于Node的系统安装目录中），或者一个位于各级<code>node_modules</code>目录的已安装模块（全局安装或局部安装）。<br>  举例来说，脚本<code>/home/user/projects/foo.js</code>执行了<code>require(&#39;bar.js&#39;)</code>命令，Node会依次搜索以下文件。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node/bar.js</div><div class="line">/home/user/projects/node_modules/bar.js</div><div class="line">/home/user/node_modules/bar.js</div><div class="line">/home/node_modules/bar.js</div><div class="line">/node_modules/bar.js</div></pre></td></tr></table></figure>
-<p>  这样设计的目的是，使得不同的模块可以将所依赖的模块本地化。<br>  （4）如果参数字符串不以<code>./</code>或<code>/</code>开头，而且是一个路径，比如<code>require(&#39;example-module/path/to/file&#39;)</code>，则将先找到<code>example-module</code>的位置，然后再以它为参数，找到后续路径。<br>  （5）如果指定的模块文件没有发现，Node会尝试为文件名添加<code>.js</code>、<code>.json</code>、<code>.node</code>后，再去搜索。<code>.js</code>件会以文本格式的JavaScript脚本文件解析，<code>.json</code>文件会以JSON格式的文本文件解析，<code>.node</code>文件会以编译后的二进制文件解析。<br>  （6）如果想得到<code>require</code>命令加载的确切文件名，使用<code>require.resolve()</code>方法。</p>
-</li>
-</ul>
-<h5 id="CommonJS模块的特点"><a href="#CommonJS模块的特点" class="headerlink" title="CommonJS模块的特点"></a>CommonJS模块的特点</h5><ul>
-<li>所有代码都运行在模块作用域，不会污染全局作用域。</li>
-<li>模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。且CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作</li>
-<li>模块加载的顺序，按照其在代码中出现的顺序。</li>
-</ul>
-<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
-<h5 id="AMD规范"><a href="#AMD规范" class="headerlink" title="AMD规范"></a>AMD规范</h5><ul>
-<li><h6 id="模块引用-1"><a href="#模块引用-1" class="headerlink" title="模块引用"></a>模块引用</h6><p>AMD也采用<code>require()</code>语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require([module], callback);</div></pre></td></tr></table></figure>
-<p>  第一个参数<code>[module]</code>，是一个数组，里面的成员就是要加载的模块；第二个参数<code>callback</code>，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([&apos;math&apos;], function (math) &#123;</div><div class="line">　　　　math.add(2, 3);</div><div class="line">　　&#125;);</div></pre></td></tr></table></figure>
-<p>require方法也可以用在define方法内部。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define(function (require) &#123;</div><div class="line">   var otherModule = require(&apos;otherModule&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>require方法允许添加第三个参数，即错误处理的回调函数。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">require(</div><div class="line">	    [ &quot;backbone&quot; ], </div><div class="line">	    function ( Backbone ) &#123;</div><div class="line">	        return Backbone.View.extend(&#123; /* ... */ &#125;);</div><div class="line">	    &#125;, </div><div class="line">	    function (err) &#123;</div><div class="line">			// ...</div><div class="line">	    &#125;</div><div class="line">	);</div></pre></td></tr></table></figure>
-</li>
-<li><h6 id="模块定义-1"><a href="#模块定义-1" class="headerlink" title="模块定义"></a>模块定义</h6><p><code>define()</code>方法用于定义模块，它是全局变量。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(id?: String, dependencies?: String[], factory: Function|Object);</div></pre></td></tr></table></figure>
-</li>
-<li><p>id（名字）<br>第一个参数，<code>id</code>，是个字符串。它指的是定义中模块的名字，这个参数是可选的。如果没有提供该参数，模块的名字应该默认为模块加载器请求的指定脚本的名字。如果提供了该参数，模块名必须是“顶级”的和绝对的（不允许相对名字）。<br><strong>模块名的格式</strong><br>模块名用来唯一标识定义中模块，它们同样在依赖数组中使用。AMD的模块名规范是CommonJS模块名规范的超集。引用如下：</p>
-<ul>
-<li>模块名是由一个或多个单词以正斜杠为分隔符拼接成的字符串</li>
-<li>单词须为驼峰形式，或者<code>.</code>，<code>..</code></li>
-<li>模块名不允许文件扩展名的形式，如<code>.js</code></li>
-<li>模块名可以为 <code>相对的</code> 或 <code>顶级的</code>。如果首字符为<code>.</code>或<code>..</code>则为<code>相对的</code>模块名</li>
-<li>顶级的模块名从根命名空间的概念模块解析</li>
-<li>相对的模块名从 <code>require</code> 书写和调用的模块解析    </li>
-</ul>
-<p>上文引用的CommonJS模块id属性常被用于JavaScript模块。<br>相对模块名解析示例：</p>
-<ul>
-<li>如果模块 <code>a/b/c</code> 请求 <code>../d</code>, 则解析为<code>a/d</code></li>
-<li>如果模块 <code>a/b/c</code> 请求 <code>./e</code>, 则解析为<code>a/b/e</code></li>
-</ul>
-</li>
-<li><p>dependencies（依赖）<br>第二个参数，<code>dependencies</code>，是个定义中模块所依赖模块的数组。依赖模块必须根据模块的factory方法优先级执行，并且执行的结果应该按照依赖数组中的位置顺序以参数的形式传入（定义中模块的）factory方法中。</p>
-<p>依赖的模块名如果是相对的，应该解析为相对定义中的模块。换句话来说，相对名解析为相对于模块的名字，并非相对于寻找该模块的名字的路径。</p>
-<p>本规范定义了三种特殊的依赖关键字。如果<code>require</code>,<code>exports</code>, 或 <code>module</code>出现在依赖列表中，参数应该按照CommonJS模块规范自由变量去解析。 </p>
-<p>依赖参数是可选的，如果忽略此参数，它应该默认为<code>[&quot;require&quot;, &quot;exports&quot;, &quot;module&quot;]</code>。然而，如果factory方法的形参个数小于3，加载器会选择以函数指定的参数个数调用factory方法。</p>
-</li>
-<li><p>factory（函数）<br>第三个参数，<code>factory</code>，为模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值。</p>
-<p>如果工厂方法返回一个值（对象，函数，或任意强制类型转换为true的值），应该为设置为模块的输出值。</p>
-<p>按照是否依赖其他模块，可以分成两种情况讨论。第一种情况是<strong>定义独立模块</strong>，即所定义的模块不依赖其他模块；第二种情况是<strong>定义非独立模块</strong>，即所定义的模块依赖于其他模块。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//独立模块</div><div class="line">define(&#123;</div><div class="line">    method1: function() &#123;&#125;,</div><div class="line">    method2: function() &#123;&#125;,</div><div class="line">&#125;);</div><div class="line">//等价于</div><div class="line">define(function () &#123;</div><div class="line">	return &#123;</div><div class="line">	    method1: function() &#123;&#125;,</div><div class="line">		method2: function() &#123;&#125;,</div><div class="line">    &#125;;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//非独立模块</div><div class="line">define([&apos;module1&apos;, &apos;module2&apos;], function(m1, m2) &#123;</div><div class="line">   ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>在 CMD 规范中，一个模块就是一个文件。</p>
-<h4 id="define"><a href="#define" class="headerlink" title="define"></a>define</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(factory);</div></pre></td></tr></table></figure>
-<p> <code>define</code> 接受 <code>factory</code> 参数，<code>factory</code> 可以是一个函数，也可以是一个对象或字符串。</p>
-<ul>
-<li><p><code>factory</code> 为对象、字符串时，表示模块的接口就是该对象、字符串。比如可以如下定义一个 JSON 数据模块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(&#123; &quot;foo&quot;: &quot;bar&quot; &#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>也可以通过字符串定义模板模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(&apos;I am a template. My name is &#123;&#123;name&#125;&#125;.&apos;);</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>factory</code> 为函数时，表示是模块的构造方法。执行该构造方法，可以得到模块向外提供的接口。<code>factory</code> 方法在执行时，默认会传入三个参数：<code>require</code>、<code>exports</code> 和 <code>module</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 模块代码</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>define</code> 也可以接受两个以上参数。字符串 <code>id</code> 表示模块标识，数组 <code>deps</code> 是模块依赖。<code>id</code>和 <code>deps</code> 参数可以省略。省略时，可以通过构建工具自动生成。<strong>但带 <code>id</code> 和 <code>deps</code> 参数的 <code>define</code> 用法不属于 CMD 规范，而属于 Modules/Transport 规范。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define(&apos;hello&apos;, [&apos;jquery&apos;], function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 模块代码</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>define.cmd<br>一个空对象，可用来判定当前页面是否有 CMD 模块加载器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (typeof define === &quot;function&quot; &amp;&amp; define.cmd) &#123;</div><div class="line">  // 有 Sea.js 等 CMD 模块加载器存在</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="require"><a href="#require" class="headerlink" title="require"></a>require</h4><p><code>require</code> 是 <code>factory</code> 函数的第一个参数。</p>
-<ul>
-<li><p><strong>require(id)</strong><br>require 是一个方法，接受 模块标识 作为唯一参数，用来获取其他模块提供的接口。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports) &#123;</div><div class="line"></div><div class="line">  // 获取模块 a 的接口</div><div class="line">  var a = require(&apos;./a&apos;);</div><div class="line"></div><div class="line">  // 调用模块 a 的方法</div><div class="line">  a.doSomething();</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>require.async(id, callback?)</strong><br>require.async 方法用来在模块内部异步加载模块，并在加载完成后执行指定回调。callback 参数可选。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 异步加载一个模块，在加载完成时，执行回调</div><div class="line">  require.async(&apos;./b&apos;, function(b) &#123;</div><div class="line">    b.doSomething();</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  // 异步加载多个模块，在加载完成时，执行回调</div><div class="line">  require.async([&apos;./c&apos;, &apos;./d&apos;], function(c, d) &#123;</div><div class="line">    c.doSomething();</div><div class="line">    d.doSomething();</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><strong>注意</strong>：<code>require</code> 是同步往下执行，<code>require.async</code>则是异步回调执行。<code>require.async</code> 一般用来加载可延迟异步加载的模块。 </p>
-</li>
-<li><p><strong>require.resolve(id)</strong><br>使用模块系统内部的路径解析机制来解析并返回模块路径。该函数不会加载模块，只返回解析后的绝对路径。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports) &#123;</div><div class="line"></div><div class="line">  console.log(require.resolve(&apos;./b&apos;));</div><div class="line">  // ==&gt; http://example.com/path/to/b.js</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>这可以用来获取模块路径，一般用在插件环境或需动态拼接模块路径的场景下</p>
-</li>
-</ul>
-<h4 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h4><p><code>exports</code> 是一个对象，用来向外提供模块接口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports) &#123;</div><div class="line"></div><div class="line">  // 对外提供 foo 属性</div><div class="line">  exports.foo = &apos;bar&apos;;</div><div class="line"></div><div class="line">  // 对外提供 doSomething 方法</div><div class="line">  exports.doSomething = function() &#123;&#125;;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h4 id="module"><a href="#module" class="headerlink" title="module"></a>module</h4><p><code>module</code> 是一个对象，上面存储了与当前模块相关联的一些属性和方法。</p>
-<ul>
-<li><p>module.id<br>模块的唯一标识。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//`define` 的第一个参数就是模块标识。</div><div class="line">define(&apos;id&apos;, [], function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 模块代码</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>module.uri<br>根据模块系统的路径解析规则得到的模块绝对路径。<br><strong>注意</strong>：一般情况下（没有在 define 中手写 id 参数时），module.id 的值就是 module.uri，两者完全相同。</p>
-</li>
-<li><p>module.dependencies<br><code>dependencies</code> 是一个数组，表示当前模块的依赖。</p>
-</li>
-<li><p>module.exports<br>当前模块对外提供的接口。<br>传给<code>factory</code> 构造方法的 <code>exports</code> 参数是 <code>module.exports</code>对象的一个引用。只通过 <code>exports</code> 参数来提供接口，有时无法满足开发者的所有需求。 比如当模块的接口是某个类的实例时，需要通过 <code>module.exports</code> 来实现.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // exports 是 module.exports 的一个引用</div><div class="line">  console.log(module.exports === exports); // true</div><div class="line"></div><div class="line">  // 重新给 module.exports 赋值</div><div class="line">  module.exports = new SomeClass();</div><div class="line"></div><div class="line">  // exports 不再等于 module.exports</div><div class="line">  console.log(module.exports === exports); // false</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><strong>注意</strong>：对 module.exports 的赋值需要同步执行，不能放在回调函数里。下面这样是不行的：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// x.js</div><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 错误用法</div><div class="line">  setTimeout(function() &#123;</div><div class="line">    module.exports = &#123; a: &quot;hello&quot; &#125;;</div><div class="line">  &#125;, 0);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>在 y.js 里有调用到上面的 x.js:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// y.js</div><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  var x = require(&apos;./x&apos;);</div><div class="line"></div><div class="line">  // 无法立刻得到模块 x 的属性 a</div><div class="line">  console.log(x.a); // undefined</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="ECMAScript-6-模块机制"><a href="#ECMAScript-6-模块机制" class="headerlink" title="ECMAScript 6 模块机制"></a>ECMAScript 6 模块机制</h2><p><code>ECMAScript 6</code>基于<code>export</code>和<code>import</code>，定义了模块的导出和导入规范，在语言标准层面实现了模块机制。该标准的目标是创建一种能够兼容<code>CommoneJS</code>和<code>AMD</code>两标准的规范，即可以像<code>CommoneJS</code>一样语法简洁、使用单一的接口且支持循环依赖，又可以像<code>AMD</code>支持异步加载和可配置的模块加载。</p>
-<h3 id="ES6的模块机制具有以下特点："><a href="#ES6的模块机制具有以下特点：" class="headerlink" title="ES6的模块机制具有以下特点："></a>ES6的模块机制具有以下特点：</h3><ul>
-<li>简洁的语法。语法将比<code>CommoneJS</code>更简单，只使用<code>export</code>和<code>import</code>实现模块的导出和导入(1、 使用<code>export</code>关键字定义导出对象，这个关键字可以无限次使用 2、 使用<code>import</code>关键字引入导入对象，这个关键字可导入任意数量的模块)</li>
-</ul>
-<ul>
-<li>模块结构可以做静态分析。这使得在编译时就能确定模块的依赖关系，以及输入和输出的变量</li>
-<li>模块支持异步加载</li>
-<li>为加载模块提供编程支持，可以按需加载</li>
-<li>比<code>CommonJS</code>更优秀的循环依赖处理</li>
-</ul>
-<h3 id="ES6定义的模块标准由两部分组成："><a href="#ES6定义的模块标准由两部分组成：" class="headerlink" title="ES6定义的模块标准由两部分组成："></a>ES6定义的模块标准由两部分组成：</h3><ul>
-<li><strong>声明语法</strong>（定义引入与导出）</li>
-<li><strong>编程式加载接口（API）</strong>：用于配置如何加载模块和按条件加载模块</li>
-</ul>
-<h4 id="声明语法"><a href="#声明语法" class="headerlink" title="声明语法"></a>声明语法</h4><h5 id="export"><a href="#export" class="headerlink" title="export"></a>export</h5><p><code>export</code>语法声明用于导出函数、对象、指定文件（或模块）的原始值。<code>export</code>有两种模块导出方式：命名式导出（名称导出）和定义式导出（默认导出），命名式导出每个模块可以多个，而默认导出每个模块仅一个。模块导出分为：<code>命名式导出</code> 和 <code>默认导出</code>。</p>
-<p><strong>命名式导出</strong><br>模块可以通过<code>export</code>前缀关键词声明导出对象，导出对象可以是多个。这些导出对象用名称进行区分，称之为<code>命名式导出</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export &#123; myFunction,name &#125;; // 导出一个已定义的函数和变量</div><div class="line">export const foo = Math.sqrt(2); // 导出一个常量</div><div class="line">//我们可以使用*和from关键字来实现的模块的继承：</div><div class="line">export * from &apos;article&apos;;</div></pre></td></tr></table></figure></p>
-<p><strong>默认导出</strong><br><code>默认导出</code>也被称做<code>定义式导出</code>。命名式导出可以导出多个值，但在在<code>import</code>引用时，也要使用相同的名称来引用相应的值。而默认导出每个导出只有一个单一值，这个输出可以是一个函数、类或其它类型的值，这样在模块<code>import</code>导入时也会很容易引用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export default function() &#123;&#125;; // 可以导出一个函数</div><div class="line">export default class()&#123;&#125;; // 也可以出一个类</div></pre></td></tr></table></figure></p>
-<p><code>export</code>可能会有以下几种形式的导出语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">export &#123; name1, name2, …, nameN &#125;;</div><div class="line">export &#123; variable1 as name1, variable2 as name2, …, nameN &#125;;</div><div class="line">export let name1, name2, …, nameN; // 也可以是 var</div><div class="line">export let name1 = …, name2 = …, …, nameN; // 也可以是 var, const</div><div class="line"></div><div class="line">export default expression;</div><div class="line">export default function (…) &#123; … &#125; // 也可以是 class, function*</div><div class="line">export default function name1(…) &#123; … &#125; // 也可以是 class, function*</div><div class="line">export &#123; name1 as default, … &#125;;</div><div class="line"></div><div class="line">export * from …;</div><div class="line">export &#123; name1, name2, …, nameN &#125; from …;</div><div class="line">export &#123; import1 as name1, import2 as name2, …, nameN &#125; from …;</div></pre></td></tr></table></figure></p>
-<ul>
-<li><code>name1… nameN</code>－导出的“标识符”。导出后，可以通过这个“标识符”在另一个模块中使用<code>import</code>引用</li>
-<li><code>default</code>－设置模块的默认导出。设置后<code>import</code>不通过“标识符”而直接引用默认导入</li>
-<li><code>*</code>－继承模块并导出继承模块所有的方法和属性</li>
-<li><code>as</code>－重命名导出“标识符”</li>
-<li><code>from</code>－从已经存在的模块、脚本文件…导出</li>
-</ul>
-<p><strong>注意：</strong><code>export</code>命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 报错</div><div class="line">export 1;</div><div class="line"></div><div class="line">// 报错</div><div class="line">var m = 1;</div><div class="line">export m;</div><div class="line"></div><div class="line">// 正确写法一</div><div class="line">export var m = 1;</div><div class="line"></div><div class="line">// 正确写法二</div><div class="line">var m = 1;</div><div class="line">export &#123;m&#125;;</div><div class="line"></div><div class="line">// 正确写法三</div><div class="line">var n = 1;</div><div class="line">export &#123;n as m&#125;;</div></pre></td></tr></table></figure></p>
-<h5 id="import"><a href="#import" class="headerlink" title="import"></a>import</h5><p><code>import</code>语法声明用于从已导出的模块、脚本中导入函数、对象、指定文件（或模块）的原始值。<code>import</code>模块导入与<code>export</code>模块导出功能相对应，也存在两种模块导入方式：<code>命名式导入</code>（名称导入）和<code>默认导入</code>（定义式导入）。<br><strong>命名式导入</strong><br>我们可以通过指定名称，就是将这些成员插入到当作用域中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//可以导入单个成员或多个成员：</div><div class="line">import &#123;myMember&#125; from &quot;my-module&quot;;</div><div class="line">import &#123;foo, bar&#125; from &quot;my-module&quot;;</div><div class="line">//通过*符号，我们可以导入模块中的全部属性和方法</div><div class="line">import * as myModule from &quot;my-module&quot;;</div><div class="line">//也可以使用as对导入成员重命名，以方便在当前模块内使用：</div><div class="line">import &#123;reallyReallyLongModuleMemberName as shortName&#125; from &quot;my-module&quot;;</div><div class="line">//导入多个成员时，同样可以使用别名</div><div class="line">import &#123;reallyReallyLongModuleMemberName as shortName, anotherLongModuleName as short&#125; from &quot;my-module&quot;;</div><div class="line">//导入一个模块，但不进行任何绑定</div><div class="line">import &quot;my-module&quot;;</div></pre></td></tr></table></figure></p>
-<p><strong>默认导入</strong><br>在模块导出时，可能会存在默认导出。同样的，在导入时可以使用import指令导出这些默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//直接导入默认值：</div><div class="line">import myDefault from &quot;my-module&quot;;</div><div class="line">//也可以在命名空间导入和名称导入中，同时使用默认导入：</div><div class="line">import myDefault, * as myModule from &quot;my-module&quot;;// myModule 做为命名空间使用 </div><div class="line">//或</div><div class="line">import myDefault, &#123;foo, bar&#125; from &quot;my-module&quot;; // 指定成员导入</div></pre></td></tr></table></figure></p>
-<p><code>import</code>可能会有以下几种形式的导入语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import defaultMember from &quot;module-name&quot;;</div><div class="line">import * as name from &quot;module-name&quot;;</div><div class="line">import &#123; member &#125; from &quot;module-name&quot;;</div><div class="line">import &#123; member as alias &#125; from &quot;module-name&quot;;</div><div class="line">import &#123; member1 , member2 &#125; from &quot;module-name&quot;;</div><div class="line">import &#123; member1 , member2 as alias2 , [...] &#125; from &quot;module-name&quot;;</div><div class="line">import defaultMember, &#123; member [ , [...] ] &#125; from &quot;module-name&quot;;</div><div class="line">import defaultMember, * as name from &quot;module-name&quot;;</div><div class="line">import &quot;module-name&quot;;</div></pre></td></tr></table></figure></p>
-<ul>
-<li><code>name</code>－从将要导入模块中收到的导出值的名称</li>
-<li><code>member</code>, memberN－从导出模块，导入指定名称的多个成员</li>
-<li><code>defaultMember</code>－从导出模块，导入默认导出成员</li>
-<li><code>alias, aliasN</code>－别名，对指定导入成员进行的重命名</li>
-<li><code>module-name</code>－要导入的模块。是一个文件名</li>
-<li><code>as</code>－重命名导入成员名称（“标识符”）</li>
-<li><code>from</code>－从已经存在的模块、脚本文件等导入</li>
-</ul>
-<p>由于<code>import</code>是静态执行，所以不能使用表达式和变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 报错</div><div class="line">import &#123; &apos;f&apos; + &apos;oo&apos; &#125; from &apos;my_module&apos;;</div><div class="line"></div><div class="line">// 报错</div><div class="line">let module = &apos;my_module&apos;;</div><div class="line">import &#123; foo &#125; from module;</div><div class="line"></div><div class="line">// 报错</div><div class="line">if (x === 1) &#123;</div><div class="line">  import &#123; foo &#125; from &apos;module1&apos;;</div><div class="line">&#125; else &#123;</div><div class="line">  import &#123; foo &#125; from &apos;module2&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>注意：</strong> <code>export</code>和<code>import</code>命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错。这是因为处于条件代码块之中，就没法做静态优化了，违背了ES6模块的设计初衷。</p>
-
-          
+          在ES6之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有CommonJS（服务器）、AMD（浏览器）和CMD。在ES6中，定义了import和export两种语法声明，从而在语言面实现
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/11/js-modules/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -935,7 +778,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
