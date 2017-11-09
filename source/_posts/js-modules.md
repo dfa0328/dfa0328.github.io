@@ -1,6 +1,7 @@
 ---
 title: JS 模块机制
 tags: JavaScript
+categories: JavaScript 
 ---
 在`ES6`之前，JavaScript中并没有在语言标准中提供模块定义规范，这对开发规模较大、较复杂的应用造成一定的影响。而在非语言层面，一些开源社区制定了模块定义规范，主要有`CommonJS`（服务器）、`AMD`（浏览器）和`CMD`。在`ES6`中，定义了`import`和`export`两种语法声明，从而在语言面实现了模块功能。
 

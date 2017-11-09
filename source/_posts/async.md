@@ -1,7 +1,8 @@
 ---
 title: JavaScript异步编程
 date: 2017-11-06 16:25:04
-tags: JavaScript
+tags: [JavaScript,Node]
+categories: Node
 ---
 
 ## 异步编程的优势与难点

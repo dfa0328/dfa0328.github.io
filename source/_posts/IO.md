@@ -2,6 +2,7 @@
 title: 异步I/O
 date: 2017-11-03 11:07:42
 tags: Node
+categories: Node
 ---
 
 ## I/O
