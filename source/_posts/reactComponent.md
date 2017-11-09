@@ -2,6 +2,7 @@
 title: React 生命周期
 date: 2016-09-28 14:00:54
 tags: React
+categories: React 
 ---
 组件的生命周期分可为三大部分： **组件初始化**、**组件更新**、**组件卸载**。
 
