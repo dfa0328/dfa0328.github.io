@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2016/04/06/git/</loc>
-    <lastmod>2017-11-09T06:31:35.000Z</lastmod>
+    <lastmod>2017-11-09T06:37:57.000Z</lastmod>
     <data>
         <display>
         <title>git 常用命令清单</title>
@@ -15,6 +15,9 @@
          
          
            
+             
+              <breadCrumb title="Git相关" url="http://yoursite.com/categories/Git%E7%9B%B8%E5%85%B3/"/>
+          
         </display>
     </data>
     </url>
