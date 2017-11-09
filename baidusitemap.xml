@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2016/09/28/reactComponent/</loc>
-    <lastmod>2017-11-09T06:16:32.000Z</lastmod>
+    <lastmod>2017-11-09T06:19:08.000Z</lastmod>
     <data>
         <display>
         <title>React 生命周期</title>
@@ -15,6 +15,9 @@
          
          
            
+             
+              <breadCrumb title="React" url="http://yoursite.com/categories/React/"/>
+          
         </display>
     </data>
     </url>
