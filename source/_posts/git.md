@@ -2,6 +2,8 @@
 title: git 常用命令清单
 date: 2016-04-06 14:26:32
 tags: Git
+categories: Git相关
+
 ---
 ## 修改项目中的个人信息
 ```
