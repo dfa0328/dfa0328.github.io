@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/11/23/vueComponent/</loc>
+    <lastmod>2017-12-13T06:36:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>Vue生命周期</title>
+        <pubTime>2017-11-23T07:29:46.000Z</pubTime>
+        
+        <tag>Vue</tag>
+         
+         
+           
+             
+              <breadCrumb title="Vue" url="http://yoursite.com/categories/Vue/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/11/20/vueHandBook2/</loc>
     <lastmod>2017-11-23T07:17:52.000Z</lastmod>
     <data>
