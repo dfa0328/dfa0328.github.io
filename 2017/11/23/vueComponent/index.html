@@ -120,7 +120,7 @@
 <meta property="og:description" content="Vue 生命周期钩子有beforeCreate、created、beforeMount、mounted、beforeUpdate、updated、activated、deactivated、beforeDestroy、destroyed、errorCaptured。所有的生命周期钩子自动绑定this上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 你不能使用箭头函数来定义一个生命">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/11/23/vueComponent/vue.png">
-<meta property="og:updated_time" content="2017-12-13T06:36:14.000Z">
+<meta property="og:updated_time" content="2017-12-18T02:19:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue生命周期">
 <meta name="twitter:description" content="Vue 生命周期钩子有beforeCreate、created、beforeMount、mounted、beforeUpdate、updated、activated、deactivated、beforeDestroy、destroyed、errorCaptured。所有的生命周期钩子自动绑定this上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 你不能使用箭头函数来定义一个生命">
@@ -381,8 +381,11 @@
 <h2 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h2><p><strong>在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。</strong>注意是之前，此时data、watcher、methods统统滴没有。这个时候的vue实例还什么都没有，但是$route对象是存在的，可以根据路由信息进行重定向之类的操作。</p>
 <h2 id="created"><a href="#created" class="headerlink" title="created"></a>created</h2><p><strong>在实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，<code>$el</code>属性目前不可见。</strong>此时 this.$data 可以访问，<code>watcher</code>、<code>events</code>、<code>methods</code>也出现了，若根据后台接口动态改变data和methods的场景下，可以使用。</p>
 <h2 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h2><p><strong>在挂载开始之前被调用：相关的<code>render</code>函数首次被调用。该钩子在服务器端渲染期间不被调用。</strong>但是render正在执行中，此时DOM还是无法操作的。相比于created生命周期，此时只是多了一个<code>$el</code>的属性，然而其值为<code>undefined</code>。使用场景我上文已经提到了，页面渲染时所需要的数据，应尽量在这之前完成赋值。</p>
-<h2 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h2><p><strong><code>el</code>被新创建的<code>vm.$el</code>替换，并挂载到实例上去之后调用该钩子。如果<code>root</code>实例挂载了一个文档内元素，当<code>mounted</code>被调用时<code>vm.$el</code>也在文档内。</strong></p>
-
+<h2 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h2><p><strong><code>el</code>被新创建的<code>vm.$el</code>替换，并挂载到实例上去之后调用该钩子。如果<code>root</code>实例挂载了一个文档内元素，当<code>mounted</code>被调用时<code>vm.$el</code>也在文档内。</strong>此时元素已经渲染完成了，依赖于DOM的代码就放在这里吧~比如监听DOM事件。<strong>该钩子在服务器端渲染期间不被调用。</strong></p>
+<p>注意<code>mounted</code>不会承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 <code>vm.$nextTick</code> 替换掉 <code>mounted</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mounted: function () &#123;</div><div class="line">  this.$nextTick(function () &#123;</div><div class="line">    // Code that will run only after the</div><div class="line">    // entire view has been rendered</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h2><p><strong>数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。</strong>你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。<br><strong>该钩子在服务器端渲染期间不被调用。</strong></p>
+<h2 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h2><p><strong>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</strong></p>
+<h2 id="activated"><a href="#activated" class="headerlink" title="activated"></a>activated</h2><h2 id="deactivated"><a href="#deactivated" class="headerlink" title="deactivated"></a>deactivated</h2>
       
     </div>
     
@@ -558,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#beforeCreate"><span class="nav-number">1.</span> <span class="nav-text">beforeCreate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#created"><span class="nav-number">2.</span> <span class="nav-text">created</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beforeMount"><span class="nav-number">3.</span> <span class="nav-text">beforeMount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mounted"><span class="nav-number">4.</span> <span class="nav-text">mounted</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#beforeCreate"><span class="nav-number">1.</span> <span class="nav-text">beforeCreate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#created"><span class="nav-number">2.</span> <span class="nav-text">created</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beforeMount"><span class="nav-number">3.</span> <span class="nav-text">beforeMount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mounted"><span class="nav-number">4.</span> <span class="nav-text">mounted</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beforeUpdate"><span class="nav-number">5.</span> <span class="nav-text">beforeUpdate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#updated"><span class="nav-number">6.</span> <span class="nav-text">updated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#activated"><span class="nav-number">7.</span> <span class="nav-text">activated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deactivated"><span class="nav-number">8.</span> <span class="nav-text">deactivated</span></a></li></ol></div>
             
 
           </div>
@@ -578,7 +581,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
