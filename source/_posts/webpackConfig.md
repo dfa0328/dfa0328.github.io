@@ -1,6 +1,6 @@
 ---
 title: webpack常用配置
-date: 2017-10-11 16:42:19
+date: 2017-06-11 16:42:19
 tags: Webpack
 categories: Webpack
 ---
