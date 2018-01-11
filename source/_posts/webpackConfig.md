@@ -33,7 +33,8 @@ var config = {
 	}, 
 	output:{
 		path:'./dist',
-		filename:'js/[name].js'
+		filename:'js/[name].js',
+		publicPath: "/" //线上文件的文件名
 	},
 	
 }
@@ -55,7 +56,8 @@ var config = {
 	}, 
 	output:{
 		path:'./dist',
-		filename:'js/[name].js'
+		filename:'js/[name].js',
+		publicPath: "/" //线上文件的文件名
 	},
 	plugins:[
  		new HtmlWebpackPlugin({
