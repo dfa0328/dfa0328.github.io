@@ -4,6 +4,43 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/01/11/webpack/</loc>
+    <lastmod>2018-01-11T08:01:40.000Z</lastmod>
+    <data>
+        <display>
+        <title>Webpack简介</title>
+        <pubTime>2018-01-11T03:03:06.000Z</pubTime>
+        
+        <tag>Webpack</tag>
+         
+         
+           
+             
+              <breadCrumb title="Webpack" url="http://yoursite.com/categories/Webpack/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/01/02/Nginx/</loc>
+    <lastmod>2018-01-03T06:04:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx</title>
+        <pubTime>2018-01-02T07:15:15.000Z</pubTime>
+        
+        <tag>Nginx</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/11/23/vueComponent/</loc>
     <lastmod>2018-01-02T06:53:35.000Z</lastmod>
     <data>
