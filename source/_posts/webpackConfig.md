@@ -88,6 +88,11 @@ module.exports=config;
 
 ```
 
+修改`html`文件的title需要在template文件中做以下修改：
+```
+<title><%= htmlWebpackPlugin.options.title %></title>
+```
 
+# 热更新
 
 
