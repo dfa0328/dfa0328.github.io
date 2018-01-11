@@ -1,6 +1,6 @@
 ---
-title: Webpack简介
-date: 2018-01-11 11:03:06
+title: Webpack基础
+date: 2018-01-06 11:03:06
 tags: Webpack
 categories: Webpack
 ---
