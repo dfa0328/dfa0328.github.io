@@ -111,18 +111,20 @@
 
 
 
-<meta name="description" content="单页面单个入口和单个出口123456789101112var config = &amp;#123;	entry:&amp;#123;		page:&amp;apos;./src/a.js&amp;apos;		&amp;#125;, 	output:&amp;#123;		path:&amp;apos;./dist&amp;apos;,		filename:&amp;apos;js/[name].js&amp;apos;,		publicPath: &amp;quot;/&amp;quot">
+<meta name="description" content="webpack简介Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LESS 等">
 <meta name="keywords" content="Webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack常用配置">
-<meta property="og:url" content="http://yoursite.com/2018/01/11/webpackConfig/index.html">
+<meta property="og:title" content="Webpack基础">
+<meta property="og:url" content="http://yoursite.com/2017/10/06/webpack/index.html">
 <meta property="og:site_name" content="Rose">
-<meta property="og:description" content="单页面单个入口和单个出口123456789101112var config = &amp;#123;	entry:&amp;#123;		page:&amp;apos;./src/a.js&amp;apos;		&amp;#125;, 	output:&amp;#123;		path:&amp;apos;./dist&amp;apos;,		filename:&amp;apos;js/[name].js&amp;apos;,		publicPath: &amp;quot;/&amp;quot">
+<meta property="og:description" content="webpack简介Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LESS 等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-11T10:32:25.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/10/06/webpack/config.jpeg">
+<meta property="og:updated_time" content="2018-01-11T10:49:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack常用配置">
-<meta name="twitter:description" content="单页面单个入口和单个出口123456789101112var config = &amp;#123;	entry:&amp;#123;		page:&amp;apos;./src/a.js&amp;apos;		&amp;#125;, 	output:&amp;#123;		path:&amp;apos;./dist&amp;apos;,		filename:&amp;apos;js/[name].js&amp;apos;,		publicPath: &amp;quot;/&amp;quot">
+<meta name="twitter:title" content="Webpack基础">
+<meta name="twitter:description" content="webpack简介Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LESS 等">
+<meta name="twitter:image" content="http://yoursite.com/2017/10/06/webpack/config.jpeg">
 
 
 
@@ -152,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/11/webpackConfig/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/06/webpack/"/>
 
 
 
 
 
-  <title>webpack常用配置 | Rose</title>
+  <title>Webpack基础 | Rose</title>
   
 
 
@@ -285,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/11/webpackConfig/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/06/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="董繁爱">
@@ -302,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack常用配置</h1>
+          <h1 class="post-title" itemprop="name headline">Webpack基础</h1>
         
 
         <div class="post-meta">
@@ -314,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T16:42:19+08:00">
-                2018-01-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-06T11:03:06+08:00">
+                2017-10-06
               </time>
             
 
@@ -374,15 +376,18 @@
       
 
       
-        <h1 id="单页面"><a href="#单页面" class="headerlink" title="单页面"></a>单页面</h1><p>单个入口和单个出口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var config = &#123;</div><div class="line">	entry:&#123;</div><div class="line">		page:&apos;./src/a.js&apos;	</div><div class="line">	&#125;, </div><div class="line">	output:&#123;</div><div class="line">		path:&apos;./dist&apos;,</div><div class="line">		filename:&apos;js/[name].js&apos;,</div><div class="line">		publicPath: &quot;/&quot; //线上文件的文件名</div><div class="line">	&#125;,</div><div class="line">	</div><div class="line">&#125;</div><div class="line">module.exports=config;</div></pre></td></tr></table></figure></p>
-<h1 id="多页面"><a href="#多页面" class="headerlink" title="多页面"></a>多页面</h1><p>多个文件多个出口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var config = &#123;</div><div class="line">	entry:&#123;</div><div class="line">		page1:&apos;./src/a.js&apos;,</div><div class="line">		page2:&apos;./src/b.js&apos;,	</div><div class="line">		page3:&apos;./src/c.js&apos;	</div><div class="line">	&#125;, </div><div class="line">	output:&#123;</div><div class="line">		path:&apos;./dist&apos;,</div><div class="line">		filename:&apos;js/[name].js&apos;,</div><div class="line">		publicPath: &quot;/&quot; //线上文件的文件名</div><div class="line">	&#125;,</div><div class="line">	</div><div class="line">&#125;</div><div class="line">module.exports=config;</div></pre></td></tr></table></figure></p>
-<h1 id="自动化生成页面中-html-文件"><a href="#自动化生成页面中-html-文件" class="headerlink" title="自动化生成页面中 html 文件"></a>自动化生成页面中 html 文件</h1><p>webpack 是没有这个功能的，所以需要引入插件<code>html-webpack-plugin</code>;<br>以多页面应用为例：（ 同一模板分别插入不同js文件导出到不同html文件 ）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</div><div class="line">var config = &#123;</div><div class="line">	entry:&#123;</div><div class="line">		a:&apos;./src/a.js&apos;,</div><div class="line">		b:&apos;./src/b.js&apos;,	</div><div class="line">		c:&apos;./src/c.js&apos;	</div><div class="line">	&#125;, </div><div class="line">	output:&#123;</div><div class="line">		path:&apos;./dist&apos;,</div><div class="line">		filename:&apos;js/[name].js&apos;,</div><div class="line">		publicPath: &quot;/&quot; //线上文件的文件名</div><div class="line">	&#125;,</div><div class="line">	plugins:[</div><div class="line"> 		new HtmlWebpackPlugin(&#123;</div><div class="line"> 			title: &apos;this is a&apos;, //html文件title</div><div class="line">			filename: &apos;a.html&apos;, //生成文件名</div><div class="line">			template: &apos;./src/index.template.html&apos;,//模板文件</div><div class="line">			inject: &apos;body&apos;, //js插入位置</div><div class="line">			excludeChunks:[&apos;b&apos;,&apos;c&apos;],//引入除了这些文件外的所有文件</div><div class="line"> 		&#125;),</div><div class="line"> 		new HtmlWebpackPlugin(&#123;</div><div class="line"> 			title: &apos;this is b&apos;,  //html文件title</div><div class="line">			filename: &apos;b.html&apos;, //生成文件名</div><div class="line">			template: &apos;./src/index.template.html&apos;,//模板文件</div><div class="line">			inject: &apos;body&apos;, //js插入位置</div><div class="line">			excludeChunks:[&apos;a&apos;,&apos;c&apos;],//引入除了这些文件外的所有文件</div><div class="line"> 		&#125;),</div><div class="line"> 		new HtmlWebpackPlugin(&#123;</div><div class="line"> 			title: &apos;this is c&apos;,  //html文件title</div><div class="line">			filename: &apos;c.html&apos;, //生成文件名</div><div class="line">			template: &apos;./src/index.template.html&apos;,//模板文件</div><div class="line">			inject: &apos;body&apos;, //js插入位置</div><div class="line">			excludeChunks:[&apos;a&apos;,&apos;b&apos;],//引入除了这些文件外的所有文件</div><div class="line"> 		&#125;)</div><div class="line">   	],</div><div class="line">	</div><div class="line">&#125;</div><div class="line">module.exports=config;</div></pre></td></tr></table></figure>
-<p>修改<code>html</code>文件的title需要在template文件中做以下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="打包速度优化"><a href="#打包速度优化" class="headerlink" title="打包速度优化"></a>打包速度优化</h1><p>babel是影响打包速度的原因之一</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">module: &#123;</div><div class="line">        loaders: [</div><div class="line">	         &#123; </div><div class="line">	            test: /\.js$/,</div><div class="line">	            loader: &quot;react-hot-loader!babel-loader&quot;,</div><div class="line">	            include: [path.join(process.cwd(), &apos;./src&apos;)],</div><div class="line">	            //指定打包文件</div><div class="line">				exclude: /(node_modules|bower_components|static|test|build|configs)/</div><div class="line">				// 非打包文件</div><div class="line">	            </div><div class="line">	         &#125;</div><div class="line">        ],</div><div class="line">     </div><div class="line">    &#125;,</div></pre></td></tr></table></figure>
-<p>减少使用stage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [&quot;react&quot;, &quot;es2015&quot;, &quot;stage-2&quot;]</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [&quot;react&quot;, &quot;es2015&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a>热更新</h1>
+        <h1 id="webpack简介"><a href="#webpack简介" class="headerlink" title="webpack简介"></a>webpack简介</h1><p>Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LESS 等。</p>
+<h1 id="Webpack配置"><a href="#Webpack配置" class="headerlink" title="Webpack配置"></a>Webpack配置</h1><p>Webpack 配置项有如下几点：<br><img src="/2017/10/06/webpack/config.jpeg" width="200" style="margin-left:0;border:none"></p>
+<ul>
+<li><strong>entry</strong>: 入口，定义要打包的文件。（即app第一个启动文件）</li>
+<li><strong>output</strong>: 出口，定义打包输出的文件，包括路径（path），文件名（filename），还可能有运行时的访问路径（publicPath）参数。</li>
+<li><strong>module</strong>: webpack将所有的资源都看做是模块，而模块就需要加载器；主要定义一些loaders,定义哪些后缀名的文件应该用哪些loader。</li>
+<li><strong>resolve</strong>: 定义能够被打包的文件，文件后缀名 </li>
+<li><strong>plugins</strong>: 定义一些额外的插件     </li>
+</ul>
+<h2 id="加载器配置（module）"><a href="#加载器配置（module）" class="headerlink" title="加载器配置（module）"></a>加载器配置（module）</h2><p>注：module 的加载顺序是从右往左的</p>
+<p>css 文件使用： style-loader，css-loader ，sass-loader或less-loader<br>js 文件使用： babel-loader，babel-preset-es2015，babel-preset-react，jsx-loader<br>图片文件使用：url-loader、file-loader、image-webpack-loader</p>
+
       
     </div>
     
@@ -412,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/06/webpack/" rel="next" title="Webpack基础">
-                <i class="fa fa-chevron-left"></i> Webpack基础
+              <a href="/2016/09/28/reactComponent/" rel="next" title="React 生命周期">
+                <i class="fa fa-chevron-left"></i> React 生命周期
               </a>
             
           </div>
@@ -421,6 +426,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/11/js-modules/" rel="prev" title="JS 模块机制">
+                JS 模块机制 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -501,7 +510,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -558,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单页面"><span class="nav-number">1.</span> <span class="nav-text">单页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多页面"><span class="nav-number">2.</span> <span class="nav-text">多页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动化生成页面中-html-文件"><span class="nav-number">3.</span> <span class="nav-text">自动化生成页面中 html 文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包速度优化"><span class="nav-number">4.</span> <span class="nav-text">打包速度优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#热更新"><span class="nav-number">5.</span> <span class="nav-text">热更新</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack简介"><span class="nav-number">1.</span> <span class="nav-text">webpack简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack配置"><span class="nav-number">2.</span> <span class="nav-text">Webpack配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载器配置（module）"><span class="nav-number">2.1.</span> <span class="nav-text">加载器配置（module）</span></a></li></ol></li></ol></div>
             
 
           </div>

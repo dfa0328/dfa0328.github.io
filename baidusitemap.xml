@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/01/11/webpackConfig/</loc>
-    <lastmod>2018-01-11T10:32:25.000Z</lastmod>
+    <loc>http://yoursite.com/2018/01/11/webpacky/</loc>
+    <lastmod>2018-01-11T10:51:33.000Z</lastmod>
     <data>
         <display>
-        <title>webpack常用配置</title>
-        <pubTime>2018-01-11T08:42:19.000Z</pubTime>
+        <title>webpack优化</title>
+        <pubTime>2018-01-11T10:44:45.000Z</pubTime>
         
         <tag>Webpack</tag>
          
@@ -24,12 +24,32 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/01/06/webpack/</loc>
-    <lastmod>2018-01-11T08:44:00.000Z</lastmod>
+    <loc>http://yoursite.com/2017/10/06/webpack/</loc>
+    <lastmod>2018-01-11T10:49:30.000Z</lastmod>
     <data>
         <display>
         <title>Webpack基础</title>
-        <pubTime>2018-01-06T03:03:06.000Z</pubTime>
+        <pubTime>2017-10-06T03:03:06.000Z</pubTime>
+        
+        <tag>Webpack</tag>
+         
+         
+           
+             
+              <breadCrumb title="Webpack" url="http://yoursite.com/categories/Webpack/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/10/11/webpackConfig/</loc>
+    <lastmod>2018-01-11T10:47:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>webpack常用配置</title>
+        <pubTime>2017-10-11T08:42:19.000Z</pubTime>
         
         <tag>Webpack</tag>
          
