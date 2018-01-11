@@ -1,6 +1,6 @@
 ---
 title: webpack常用配置
-date: 2018-01-11 16:42:19
+date: 2017-10-11 16:42:19
 tags: Webpack
 categories: Webpack
 ---
@@ -93,38 +93,6 @@ module.exports=config;
 <title><%= htmlWebpackPlugin.options.title %></title>
 ```
 
-# 打包速度优化
-babel是影响打包速度的原因之一
-
-```
-module: {
-        loaders: [
-	         { 
-	            test: /\.js$/,
-	            loader: "react-hot-loader!babel-loader",
-	            include: [path.join(process.cwd(), './src')],
-	            //指定打包文件
-				exclude: /(node_modules|bower_components|static|test|build|configs)/
-				// 非打包文件
-	            
-	         }
-        ],
-     
-    },
-
-```
-
-
-减少使用stage
-```
-{
-  "presets": ["react", "es2015", "stage-2"]
-}
-{
-  "presets": ["react", "es2015"]
-}
-```
-
-
 # 热更新
+
 

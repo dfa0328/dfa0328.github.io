@@ -1,6 +1,6 @@
 ---
 title: Webpack基础
-date: 2018-01-06 11:03:06
+date: 2017-10-06 11:03:06
 tags: Webpack
 categories: Webpack
 ---
@@ -18,7 +18,13 @@ Webpack 配置项有如下几点：
 * **plugins**: 定义一些额外的插件     
 
 
+## 加载器配置（module）
 
+注：module 的加载顺序是从右往左的
+
+css 文件使用： style-loader，css-loader ，sass-loader或less-loader
+js 文件使用： babel-loader，babel-preset-es2015，babel-preset-react，jsx-loader
+图片文件使用：url-loader、file-loader、image-webpack-loader
 
 
 
