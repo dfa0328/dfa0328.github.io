@@ -120,7 +120,7 @@
 <meta property="og:description" content="webpack简介Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LESS 等">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/06/06/webpack/config.jpeg">
-<meta property="og:updated_time" content="2018-01-11T10:52:42.000Z">
+<meta property="og:updated_time" content="2018-01-12T06:16:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack基础">
 <meta name="twitter:description" content="webpack简介Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LESS 等">
@@ -385,8 +385,9 @@
 <li><strong>resolve</strong>: 定义能够被打包的文件，文件后缀名 </li>
 <li><strong>plugins</strong>: 定义一些额外的插件     </li>
 </ul>
-<h2 id="加载器配置（module）"><a href="#加载器配置（module）" class="headerlink" title="加载器配置（module）"></a>加载器配置（module）</h2><p>注：module 的加载顺序是从右往左的</p>
+<h2 id="常用Loaders介绍"><a href="#常用Loaders介绍" class="headerlink" title="常用Loaders介绍"></a>常用Loaders介绍</h2><p>注：module 的加载顺序是从右往左的</p>
 <p>css 文件使用： style-loader，css-loader ，sass-loader或less-loader<br>js 文件使用： babel-loader，babel-preset-es2015，babel-preset-react，jsx-loader<br>图片文件使用：url-loader、file-loader、image-webpack-loader</p>
+<h2 id="常用Plugins介绍"><a href="#常用Plugins介绍" class="headerlink" title="常用Plugins介绍"></a>常用Plugins介绍</h2><p>代码热替换： HotModuleReplacementPlugin<br>生成html文件：HtmlWebpackPlugin<br>将css成生文件，而非内联：ExtractTextPlugin<br>报错但不退出webpack进程：NoErrorsPlugin<br>代码丑化（压缩）：UglifyJsPlugin（开发过程中不建议打开）<br>多个 html共用一个js文件(chunk)：CommonsChunkPlugin<br>清理文件夹：Clean</p>
 
       
     </div>
@@ -567,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack简介"><span class="nav-number">1.</span> <span class="nav-text">webpack简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack配置"><span class="nav-number">2.</span> <span class="nav-text">Webpack配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载器配置（module）"><span class="nav-number">2.1.</span> <span class="nav-text">加载器配置（module）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack简介"><span class="nav-number">1.</span> <span class="nav-text">webpack简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack配置"><span class="nav-number">2.</span> <span class="nav-text">Webpack配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用Loaders介绍"><span class="nav-number">2.1.</span> <span class="nav-text">常用Loaders介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用Plugins介绍"><span class="nav-number">2.2.</span> <span class="nav-text">常用Plugins介绍</span></a></li></ol></li></ol></div>
             
 
           </div>
