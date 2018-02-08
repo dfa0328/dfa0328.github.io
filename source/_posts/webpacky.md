@@ -6,6 +6,8 @@ categories: Webpack
 ---
 
 # 打包速度优化
+
+## 设置 test & include & exclude
 babel是影响打包速度的原因之一
 
 ```
@@ -24,7 +26,6 @@ module: {
     },
 
 ```
-
 
 减少使用stage
 ```

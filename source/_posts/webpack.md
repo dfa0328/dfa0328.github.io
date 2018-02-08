@@ -18,7 +18,7 @@ Webpack 配置项有如下几点：
 * **plugins**: 定义一些额外的插件     
 
 
-## 加载器配置（module）
+## 常用Loaders介绍
 
 注：module 的加载顺序是从右往左的
 
@@ -26,7 +26,15 @@ css 文件使用： style-loader，css-loader ，sass-loader或less-loader
 js 文件使用： babel-loader，babel-preset-es2015，babel-preset-react，jsx-loader
 图片文件使用：url-loader、file-loader、image-webpack-loader
 
+## 常用Plugins介绍
 
+代码热替换： HotModuleReplacementPlugin
+生成html文件：HtmlWebpackPlugin
+将css成生文件，而非内联：ExtractTextPlugin
+报错但不退出webpack进程：NoErrorsPlugin
+代码丑化（压缩）：UglifyJsPlugin（开发过程中不建议打开）
+多个 html共用一个js文件(chunk)：CommonsChunkPlugin
+清理文件夹：Clean
 
 
 

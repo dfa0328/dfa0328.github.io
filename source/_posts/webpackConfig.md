@@ -95,4 +95,61 @@ module.exports=config;
 
 # 热更新
 
+方法一：最简单的方式（修改 webpack-dev-server 配置）
+
+```
+var config = {
+	entry:{
+		page:'./src/a.js'	
+	}, 
+	output:{
+		path:'./dist',
+		filename:'js/[name].js',
+		publicPath: "/" //线上文件的文件名
+	},
+	//webpack-dev-server配置
+	devServer: {
+		contentBase: './dist',
+		//默认webpack-dev-server会为根文件夹提供本地服务器，如果想为另外一个目录下的文件提供本地服务器，应该在这里设置其所在目录
+		port: 8082,//设置默认监听端口，如果省略，默认为"8080"
+		open:'http://localhost:8082', //启动服务自动打开浏览器
+		historyApiFallback:true //是否热更新
+	}
+}
+module.exports=config;
+ 
+```
+
+方法二：
+
+1、将代码内联到入口js文件里 
+```
+entry:['webpack/hot/dev-server',__dirname+'/src/main.js']
+```
+
+2、启动代码热替换的plugins
+```
+plugins:[
+	webpack.HotModuleReplacementPlugin()
+]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
