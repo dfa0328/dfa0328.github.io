@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -80,9 +80,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -100,7 +100,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -152,7 +152,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/11/js-modules/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/11/js-modules/">
 
 
 
@@ -186,7 +186,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Rose</span>
         <span class="logo-line-after"><i></i></span>
@@ -216,7 +216,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -226,7 +226,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -236,7 +236,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -246,7 +246,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -289,7 +289,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="董繁爱">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/cat.jpeg">
     </span>
 
@@ -325,7 +325,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -391,13 +391,13 @@
 <h3 id="CommomJS的模块规范"><a href="#CommomJS的模块规范" class="headerlink" title="CommomJS的模块规范"></a>CommomJS的模块规范</h3><p>CommonJS对模块的定义十分简单，主要分为<code>模块引用</code>、<code>模块定义</code>和<code>模块标识</code>3个部分。</p>
 <ul>
 <li><h4 id="模块引用"><a href="#模块引用" class="headerlink" title="模块引用"></a>模块引用</h4><p>在CommonJS规范中，存在<code>require()</code>方法，这个方法接受模块标识，以此引入一个模块的API到当前上下文中。require命令的基本功能是，读入并执行一个JavaScript文件，然后返回<code>module.exports</code>对象。如果没有发现指定模块，会报错。<br>模块引用的示例代码如下</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var main=require(&apos;main&apos;);</div><div class="line">//等同于</div><div class="line">var main=require(&apos;main.js&apos;);</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var main=require(&apos;main&apos;);</span><br><span class="line">//等同于</span><br><span class="line">var main=require(&apos;main.js&apos;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="模块定义"><a href="#模块定义" class="headerlink" title="模块定义"></a>模块定义</h4><p>在模块中，上下文提供<code>require()</code>方法来引入外部模块。对应引入的功能，上下文提供了<code>exports</code>对象用于导出当前模块的方法或变量，并且它是唯一导出的出口（exports 变量，指向 module.exports）。在模块中，还存在一个<code>module</code>对象，它代表模块自身，而<code>exports</code>是<code>module</code>的属性。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// main.js</div><div class="line">var counter = 3;</div><div class="line">function incCounter() &#123;</div><div class="line">  counter++;</div><div class="line">&#125;</div><div class="line">//如果一个模块的对外接口，就是一个单一的值，</div><div class="line">//不能使用exports输出，只能使用module.exports输出</div><div class="line">module.exports = &#123;</div><div class="line">  counter: counter, </div><div class="line">  incCounter: incCounter,</div><div class="line">&#125;;</div><div class="line">//sum.js</div><div class="line">var main = require(&apos;main&apos;);</div><div class="line">exports.add = function()&#123;</div><div class="line">    return main.incCounter();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line">var counter = 3;</span><br><span class="line">function incCounter() &#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line">//如果一个模块的对外接口，就是一个单一的值，</span><br><span class="line">//不能使用exports输出，只能使用module.exports输出</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  counter: counter, </span><br><span class="line">  incCounter: incCounter,</span><br><span class="line">&#125;;</span><br><span class="line">//sum.js</span><br><span class="line">var main = require(&apos;main&apos;);</span><br><span class="line">exports.add = function()&#123;</span><br><span class="line">    return main.incCounter();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="模块标识"><a href="#模块标识" class="headerlink" title="模块标识"></a>模块标识</h4><p>模块标识其实就是传递给<code>require()</code>方法的参数，它必须是符合小驼峰命名的字符串，或者以<code>.</code>、<code>..</code>开头的相对路径，或者绝对路径。require命令用于加载文件，后缀名默认为<code>.js</code>。<br>根据参数的不同格式，require命令去不同路径寻找模块文件。<br><strong>加载规则</strong><br>  （1) 如果参数字符串以<code>/</code>开头，则表示加载的是一个位于绝对路径的模块文件。比如，<code>require(&#39;/home/marco/foo.js&#39;)</code>将加载<code>/home/marco/foo.js</code>。<br>  （2)如果参数字符串以<code>./</code>开头，则表示加载的是一个位于相对路径（跟当前执行脚本的位置相比）的模块文件。比如，<code>require(&#39;./circle&#39;)</code>将加载当前脚本同一目录的<code>circle.js</code>。<br>  （3)如果参数字符串不以<code>./</code>或<code>/</code>开头，则表示加载的是一个默认提供的核心模块（位于Node的系统安装目录中），或者一个位于各级<code>node_modules</code>目录的已安装模块（全局安装或局部安装）。<br>  举例来说，脚本<code>/home/user/projects/foo.js</code>执行了<code>require(&#39;bar.js&#39;)</code>命令，Node会依次搜索以下文件。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node/bar.js</div><div class="line">/home/user/projects/node_modules/bar.js</div><div class="line">/home/user/node_modules/bar.js</div><div class="line">/home/node_modules/bar.js</div><div class="line">/node_modules/bar.js</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/lib/node/bar.js</span><br><span class="line">/home/user/projects/node_modules/bar.js</span><br><span class="line">/home/user/node_modules/bar.js</span><br><span class="line">/home/node_modules/bar.js</span><br><span class="line">/node_modules/bar.js</span><br></pre></td></tr></table></figure>
 <p>  这样设计的目的是，使得不同的模块可以将所依赖的模块本地化。</p>
 <p>  （4）如果参数字符串不以<code>./</code>或<code>/</code>开头，而且是一个路径，比如 <code>require(&#39;example-module/path/to/file&#39;)</code> ，则将先找到 <code>example-module</code> 的位置，然后再以它为参数，找到后续路径。<br>  （5）如果指定的模块文件没有发现，Node会尝试为文件名添加 <code>.js</code> 、 <code>.json</code> 、 <code>.node</code> 后，再去搜索。<code>.js</code> 件会以文本格式的JavaScript脚本文件解析，<code>.json</code> 文件会以JSON格式的文本文件解析， <code>.node</code> 文件会以编译后的二进制文件解析。<br>  （6）如果想得到 <code>require</code> 命令加载的确切文件名，使用 <code>require.resolve()</code> 方法。</p>
 </li>
@@ -410,16 +410,16 @@
 <h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
 <h3 id="AMD规范"><a href="#AMD规范" class="headerlink" title="AMD规范"></a>AMD规范</h3><ul>
 <li><h4 id="模块引用-1"><a href="#模块引用-1" class="headerlink" title="模块引用"></a>模块引用</h4><p>AMD也采用<code>require()</code>语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require([module], callback);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require([module], callback);</span><br></pre></td></tr></table></figure>
 <p>  第一个参数<code>[module]</code>，是一个数组，里面的成员就是要加载的模块；第二个参数<code>callback</code>，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([&apos;math&apos;], function (math) &#123;</div><div class="line">　　　　math.add(2, 3);</div><div class="line">　　&#125;);</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require([&apos;math&apos;], function (math) &#123;</span><br><span class="line">　　　　math.add(2, 3);</span><br><span class="line">　　&#125;);</span><br></pre></td></tr></table></figure>
 <p>   require方法也可以用在define方法内部。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define(function (require) &#123;</div><div class="line">   var otherModule = require(&apos;otherModule&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(function (require) &#123;</span><br><span class="line">   var otherModule = require(&apos;otherModule&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>   require方法允许添加第三个参数，即错误处理的回调函数。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">require(</div><div class="line">	    [ &quot;backbone&quot; ], </div><div class="line">	    function ( Backbone ) &#123;</div><div class="line">	        return Backbone.View.extend(&#123; /* ... */ &#125;);</div><div class="line">	    &#125;, </div><div class="line">	    function (err) &#123;</div><div class="line">			// ...</div><div class="line">	    &#125;</div><div class="line">	);</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">require(</span><br><span class="line">	    [ &quot;backbone&quot; ], </span><br><span class="line">	    function ( Backbone ) &#123;</span><br><span class="line">	        return Backbone.View.extend(&#123; /* ... */ &#125;);</span><br><span class="line">	    &#125;, </span><br><span class="line">	    function (err) &#123;</span><br><span class="line">			// ...</span><br><span class="line">	    &#125;</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="模块定义-1"><a href="#模块定义-1" class="headerlink" title="模块定义"></a>模块定义</h4><p><code>define()</code>方法用于定义模块，它是全局变量。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(id?: String, dependencies?: String[], factory: Function|Object);</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(id?: String, dependencies?: String[], factory: Function|Object);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>id（名字）<br>第一个参数，<code>id</code>，是个字符串。它指的是定义中模块的名字，这个参数是可选的。如果没有提供该参数，模块的名字应该默认为模块加载器请求的指定脚本的名字。如果提供了该参数，模块名必须是“顶级”的和绝对的（不允许相对名字）。<br><strong>模块名的格式</strong><br>模块名用来唯一标识定义中模块，它们同样在依赖数组中使用。AMD的模块名规范是CommonJS模块名规范的超集。引用如下：</p>
 <ul>
@@ -445,61 +445,61 @@
 <li><p>factory（函数）<br>第三个参数，<code>factory</code>，为模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值。</p>
 <p>如果工厂方法返回一个值（对象，函数，或任意强制类型转换为true的值），应该为设置为模块的输出值。</p>
 <p>  按照是否依赖其他模块，可以分成两种情况讨论。第一种情况是<strong>定义独立模块</strong>，即所定义的模块不依赖其他模块；第二种情况是<strong>定义非独立模块</strong>，即所定义的模块依赖于其他模块。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//独立模块</div><div class="line">define(&#123;</div><div class="line">    method1: function() &#123;&#125;,</div><div class="line">    method2: function() &#123;&#125;,</div><div class="line">&#125;);</div><div class="line">//等价于</div><div class="line">define(function () &#123;</div><div class="line">	return &#123;</div><div class="line">	    method1: function() &#123;&#125;,</div><div class="line">		method2: function() &#123;&#125;,</div><div class="line">    &#125;;</div><div class="line">&#125;);</div><div class="line">//非独立模块</div><div class="line">define([&apos;module1&apos;, &apos;module2&apos;], function(m1, m2) &#123;</div><div class="line">   ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//独立模块</span><br><span class="line">define(&#123;</span><br><span class="line">    method1: function() &#123;&#125;,</span><br><span class="line">    method2: function() &#123;&#125;,</span><br><span class="line">&#125;);</span><br><span class="line">//等价于</span><br><span class="line">define(function () &#123;</span><br><span class="line">	return &#123;</span><br><span class="line">	    method1: function() &#123;&#125;,</span><br><span class="line">		method2: function() &#123;&#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br><span class="line">//非独立模块</span><br><span class="line">define([&apos;module1&apos;, &apos;module2&apos;], function(m1, m2) &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="CMD规范"><a href="#CMD规范" class="headerlink" title="CMD规范"></a>CMD规范</h2><p>在 CMD 规范中，一个模块就是一个文件。</p>
-<h3 id="define"><a href="#define" class="headerlink" title="define"></a>define</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(factory);</div></pre></td></tr></table></figure>
+<h3 id="define"><a href="#define" class="headerlink" title="define"></a>define</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(factory);</span><br></pre></td></tr></table></figure>
 <p> <code>define</code> 接受 <code>factory</code> 参数，<code>factory</code> 可以是一个函数，也可以是一个对象或字符串。</p>
 <ul>
 <li><p><code>factory</code> 为对象、字符串时，表示模块的接口就是该对象、字符串。比如可以如下定义一个 JSON 数据模块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(&#123; &quot;foo&quot;: &quot;bar&quot; &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(&#123; &quot;foo&quot;: &quot;bar&quot; &#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>也可以通过字符串定义模板模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(&apos;I am a template. My name is &#123;&#123;name&#125;&#125;.&apos;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(&apos;I am a template. My name is &#123;&#123;name&#125;&#125;.&apos;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>factory</code> 为函数时，表示是模块的构造方法。执行该构造方法，可以得到模块向外提供的接口。<code>factory</code> 方法在执行时，默认会传入三个参数：<code>require</code>、<code>exports</code> 和 <code>module</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 模块代码</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define(function(require, exports, module) &#123;</span><br><span class="line"></span><br><span class="line">  // 模块代码</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>define</code> 也可以接受两个以上参数。字符串 <code>id</code> 表示模块标识，数组 <code>deps</code> 是模块依赖。<code>id</code>和 <code>deps</code> 参数可以省略。省略时，可以通过构建工具自动生成。<strong>但带 <code>id</code> 和 <code>deps</code> 参数的 <code>define</code> 用法不属于 CMD 规范，而属于 Modules/Transport 规范。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define(&apos;hello&apos;, [&apos;jquery&apos;], function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 模块代码</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define(&apos;hello&apos;, [&apos;jquery&apos;], function(require, exports, module) &#123;</span><br><span class="line"></span><br><span class="line">  // 模块代码</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>define.cmd<br>一个空对象，可用来判定当前页面是否有 CMD 模块加载器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (typeof define === &quot;function&quot; &amp;&amp; define.cmd) &#123;</div><div class="line">  // 有 Sea.js 等 CMD 模块加载器存在</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (typeof define === &quot;function&quot; &amp;&amp; define.cmd) &#123;</span><br><span class="line">  // 有 Sea.js 等 CMD 模块加载器存在</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="require"><a href="#require" class="headerlink" title="require"></a>require</h3><p><code>require</code> 是 <code>factory</code> 函数的第一个参数。</p>
 <ul>
 <li><p><strong>require(id)</strong><br>require 是一个方法，接受 模块标识 作为唯一参数，用来获取其他模块提供的接口。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports) &#123;</div><div class="line"></div><div class="line">  // 获取模块 a 的接口</div><div class="line">  var a = require(&apos;./a&apos;);</div><div class="line"></div><div class="line">  // 调用模块 a 的方法</div><div class="line">  a.doSomething();</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define(function(require, exports) &#123;</span><br><span class="line"></span><br><span class="line">  // 获取模块 a 的接口</span><br><span class="line">  var a = require(&apos;./a&apos;);</span><br><span class="line"></span><br><span class="line">  // 调用模块 a 的方法</span><br><span class="line">  a.doSomething();</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>require.async(id, callback?)</strong><br>require.async 方法用来在模块内部异步加载模块，并在加载完成后执行指定回调。callback 参数可选。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 异步加载一个模块，在加载完成时，执行回调</div><div class="line">  require.async(&apos;./b&apos;, function(b) &#123;</div><div class="line">    b.doSomething();</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  // 异步加载多个模块，在加载完成时，执行回调</div><div class="line">  require.async([&apos;./c&apos;, &apos;./d&apos;], function(c, d) &#123;</div><div class="line">    c.doSomething();</div><div class="line">    d.doSomething();</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">define(function(require, exports, module) &#123;</span><br><span class="line"></span><br><span class="line">  // 异步加载一个模块，在加载完成时，执行回调</span><br><span class="line">  require.async(&apos;./b&apos;, function(b) &#123;</span><br><span class="line">    b.doSomething();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  // 异步加载多个模块，在加载完成时，执行回调</span><br><span class="line">  require.async([&apos;./c&apos;, &apos;./d&apos;], function(c, d) &#123;</span><br><span class="line">    c.doSomething();</span><br><span class="line">    d.doSomething();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>：<code>require</code> 是同步往下执行，<code>require.async</code>则是异步回调执行。<code>require.async</code> 一般用来加载可延迟异步加载的模块。 </p>
 </li>
 <li><p><strong>require.resolve(id)</strong><br>使用模块系统内部的路径解析机制来解析并返回模块路径。该函数不会加载模块，只返回解析后的绝对路径。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports) &#123;</div><div class="line"></div><div class="line">  console.log(require.resolve(&apos;./b&apos;));</div><div class="line">  // ==&gt; http://example.com/path/to/b.js</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(function(require, exports) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(require.resolve(&apos;./b&apos;));</span><br><span class="line">  // ==&gt; http://example.com/path/to/b.js</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>这可以用来获取模块路径，一般用在插件环境或需动态拼接模块路径的场景下</p>
 </li>
 </ul>
-<h3 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h3><p><code>exports</code> 是一个对象，用来向外提供模块接口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports) &#123;</div><div class="line"></div><div class="line">  // 对外提供 foo 属性</div><div class="line">  exports.foo = &apos;bar&apos;;</div><div class="line"></div><div class="line">  // 对外提供 doSomething 方法</div><div class="line">  exports.doSomething = function() &#123;&#125;;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h3><p><code>exports</code> 是一个对象，用来向外提供模块接口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define(function(require, exports) &#123;</span><br><span class="line"></span><br><span class="line">  // 对外提供 foo 属性</span><br><span class="line">  exports.foo = &apos;bar&apos;;</span><br><span class="line"></span><br><span class="line">  // 对外提供 doSomething 方法</span><br><span class="line">  exports.doSomething = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><p><code>module</code> 是一个对象，上面存储了与当前模块相关联的一些属性和方法。</p>
 <ul>
 <li><p>module.id<br>模块的唯一标识。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//`define` 的第一个参数就是模块标识。</div><div class="line">define(&apos;id&apos;, [], function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 模块代码</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//`define` 的第一个参数就是模块标识。</span><br><span class="line">define(&apos;id&apos;, [], function(require, exports, module) &#123;</span><br><span class="line"></span><br><span class="line">  // 模块代码</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>module.uri<br>根据模块系统的路径解析规则得到的模块绝对路径。<br><strong>注意</strong>：一般情况下（没有在 define 中手写 id 参数时），module.id 的值就是 module.uri，两者完全相同。</p>
 </li>
 <li><p>module.dependencies<br><code>dependencies</code> 是一个数组，表示当前模块的依赖。</p>
 </li>
 <li><p>module.exports<br>当前模块对外提供的接口。<br>传给<code>factory</code> 构造方法的 <code>exports</code> 参数是 <code>module.exports</code>对象的一个引用。只通过 <code>exports</code> 参数来提供接口，有时无法满足开发者的所有需求。 比如当模块的接口是某个类的实例时，需要通过 <code>module.exports</code> 来实现.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // exports 是 module.exports 的一个引用</div><div class="line">  console.log(module.exports === exports); // true</div><div class="line"></div><div class="line">  // 重新给 module.exports 赋值</div><div class="line">  module.exports = new SomeClass();</div><div class="line"></div><div class="line">  // exports 不再等于 module.exports</div><div class="line">  console.log(module.exports === exports); // false</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define(function(require, exports, module) &#123;</span><br><span class="line"></span><br><span class="line">  // exports 是 module.exports 的一个引用</span><br><span class="line">  console.log(module.exports === exports); // true</span><br><span class="line"></span><br><span class="line">  // 重新给 module.exports 赋值</span><br><span class="line">  module.exports = new SomeClass();</span><br><span class="line"></span><br><span class="line">  // exports 不再等于 module.exports</span><br><span class="line">  console.log(module.exports === exports); // false</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>：对 module.exports 的赋值需要同步执行，不能放在回调函数里。下面这样是不行的：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// x.js</div><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 错误用法</div><div class="line">  setTimeout(function() &#123;</div><div class="line">    module.exports = &#123; a: &quot;hello&quot; &#125;;</div><div class="line">  &#125;, 0);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// x.js</span><br><span class="line">define(function(require, exports, module) &#123;</span><br><span class="line"></span><br><span class="line">  // 错误用法</span><br><span class="line">  setTimeout(function() &#123;</span><br><span class="line">    module.exports = &#123; a: &quot;hello&quot; &#125;;</span><br><span class="line">  &#125;, 0);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>在 y.js 里有调用到上面的 x.js:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// y.js</div><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  var x = require(&apos;./x&apos;);</div><div class="line"></div><div class="line">  // 无法立刻得到模块 x 的属性 a</div><div class="line">  console.log(x.a); // undefined</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// y.js</span><br><span class="line">define(function(require, exports, module) &#123;</span><br><span class="line"></span><br><span class="line">  var x = require(&apos;./x&apos;);</span><br><span class="line"></span><br><span class="line">  // 无法立刻得到模块 x 的属性 a</span><br><span class="line">  console.log(x.a); // undefined</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h1 id="ECMAScript-6-模块机制"><a href="#ECMAScript-6-模块机制" class="headerlink" title="ECMAScript 6 模块机制"></a>ECMAScript 6 模块机制</h1><p><code>ECMAScript 6</code>基于<code>export</code>和<code>import</code>，定义了模块的导出和导入规范，在语言标准层面实现了模块机制。该标准的目标是创建一种能够兼容<code>CommoneJS</code>和<code>AMD</code>两标准的规范，即可以像<code>CommoneJS</code>一样语法简洁、使用单一的接口且支持循环依赖，又可以像<code>AMD</code>支持异步加载和可配置的模块加载。</p>
@@ -517,9 +517,9 @@
 <li><strong>编程式加载接口（API）</strong>：用于配置如何加载模块和按条件加载模块</li>
 </ul>
 <h3 id="声明语法"><a href="#声明语法" class="headerlink" title="声明语法"></a>声明语法</h3><h4 id="export"><a href="#export" class="headerlink" title="export"></a>export</h4><p><code>export</code>语法声明用于导出函数、对象、指定文件（或模块）的原始值。<code>export</code>有两种模块导出方式：命名式导出（名称导出）和定义式导出（默认导出），命名式导出每个模块可以多个，而默认导出每个模块仅一个。模块导出分为：<code>命名式导出</code> 和 <code>默认导出</code>。</p>
-<p><strong>命名式导出</strong><br>模块可以通过<code>export</code>前缀关键词声明导出对象，导出对象可以是多个。这些导出对象用名称进行区分，称之为<code>命名式导出</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export &#123; myFunction,name &#125;; // 导出一个已定义的函数和变量</div><div class="line">export const foo = Math.sqrt(2); // 导出一个常量</div><div class="line">//我们可以使用*和from关键字来实现的模块的继承：</div><div class="line">export * from &apos;article&apos;;</div></pre></td></tr></table></figure></p>
-<p><strong>默认导出</strong><br><code>默认导出</code>也被称做<code>定义式导出</code>。命名式导出可以导出多个值，但在在<code>import</code>引用时，也要使用相同的名称来引用相应的值。而默认导出每个导出只有一个单一值，这个输出可以是一个函数、类或其它类型的值，这样在模块<code>import</code>导入时也会很容易引用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export default function() &#123;&#125;; // 可以导出一个函数</div><div class="line">export default class()&#123;&#125;; // 也可以出一个类</div></pre></td></tr></table></figure></p>
-<p><code>export</code>可能会有以下几种形式的导出语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">export &#123; name1, name2, …, nameN &#125;;</div><div class="line">export &#123; variable1 as name1, variable2 as name2, …, nameN &#125;;</div><div class="line">export let name1, name2, …, nameN; // 也可以是 var</div><div class="line">export let name1 = …, name2 = …, …, nameN; // 也可以是 var, const</div><div class="line"></div><div class="line">export default expression;</div><div class="line">export default function (…) &#123; … &#125; // 也可以是 class, function*</div><div class="line">export default function name1(…) &#123; … &#125; // 也可以是 class, function*</div><div class="line">export &#123; name1 as default, … &#125;;</div><div class="line"></div><div class="line">export * from …;</div><div class="line">export &#123; name1, name2, …, nameN &#125; from …;</div><div class="line">export &#123; import1 as name1, import2 as name2, …, nameN &#125; from …;</div></pre></td></tr></table></figure></p>
+<p><strong>命名式导出</strong><br>模块可以通过<code>export</code>前缀关键词声明导出对象，导出对象可以是多个。这些导出对象用名称进行区分，称之为<code>命名式导出</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export &#123; myFunction,name &#125;; // 导出一个已定义的函数和变量</span><br><span class="line">export const foo = Math.sqrt(2); // 导出一个常量</span><br><span class="line">//我们可以使用*和from关键字来实现的模块的继承：</span><br><span class="line">export * from &apos;article&apos;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>默认导出</strong><br><code>默认导出</code>也被称做<code>定义式导出</code>。命名式导出可以导出多个值，但在在<code>import</code>引用时，也要使用相同的名称来引用相应的值。而默认导出每个导出只有一个单一值，这个输出可以是一个函数、类或其它类型的值，这样在模块<code>import</code>导入时也会很容易引用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export default function() &#123;&#125;; // 可以导出一个函数</span><br><span class="line">export default class()&#123;&#125;; // 也可以出一个类</span><br></pre></td></tr></table></figure></p>
+<p><code>export</code>可能会有以下几种形式的导出语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export &#123; name1, name2, …, nameN &#125;;</span><br><span class="line">export &#123; variable1 as name1, variable2 as name2, …, nameN &#125;;</span><br><span class="line">export let name1, name2, …, nameN; // 也可以是 var</span><br><span class="line">export let name1 = …, name2 = …, …, nameN; // 也可以是 var, const</span><br><span class="line"></span><br><span class="line">export default expression;</span><br><span class="line">export default function (…) &#123; … &#125; // 也可以是 class, function*</span><br><span class="line">export default function name1(…) &#123; … &#125; // 也可以是 class, function*</span><br><span class="line">export &#123; name1 as default, … &#125;;</span><br><span class="line"></span><br><span class="line">export * from …;</span><br><span class="line">export &#123; name1, name2, …, nameN &#125; from …;</span><br><span class="line">export &#123; import1 as name1, import2 as name2, …, nameN &#125; from …;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><code>name1… nameN</code>－导出的“标识符”。导出后，可以通过这个“标识符”在另一个模块中使用<code>import</code>引用</li>
 <li><code>default</code>－设置模块的默认导出。设置后<code>import</code>不通过“标识符”而直接引用默认导入</li>
@@ -527,10 +527,10 @@
 <li><code>as</code>－重命名导出“标识符”</li>
 <li><code>from</code>－从已经存在的模块、脚本文件…导出</li>
 </ul>
-<p><strong>注意：</strong><code>export</code>命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 报错</div><div class="line">export 1;</div><div class="line"></div><div class="line">// 报错</div><div class="line">var m = 1;</div><div class="line">export m;</div><div class="line"></div><div class="line">// 正确写法一</div><div class="line">export var m = 1;</div><div class="line"></div><div class="line">// 正确写法二</div><div class="line">var m = 1;</div><div class="line">export &#123;m&#125;;</div><div class="line"></div><div class="line">// 正确写法三</div><div class="line">var n = 1;</div><div class="line">export &#123;n as m&#125;;</div></pre></td></tr></table></figure></p>
-<h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><p><code>import</code>语法声明用于从已导出的模块、脚本中导入函数、对象、指定文件（或模块）的原始值。<code>import</code>模块导入与<code>export</code>模块导出功能相对应，也存在两种模块导入方式：<code>命名式导入</code>（名称导入）和<code>默认导入</code>（定义式导入）。<br><strong>命名式导入</strong><br>我们可以通过指定名称，就是将这些成员插入到当作用域中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//可以导入单个成员或多个成员：</div><div class="line">import &#123;myMember&#125; from &quot;my-module&quot;;</div><div class="line">import &#123;foo, bar&#125; from &quot;my-module&quot;;</div><div class="line">//通过*符号，我们可以导入模块中的全部属性和方法</div><div class="line">import * as myModule from &quot;my-module&quot;;</div><div class="line">//也可以使用as对导入成员重命名，以方便在当前模块内使用：</div><div class="line">import &#123;reallyReallyLongModuleMemberName as shortName&#125; from &quot;my-module&quot;;</div><div class="line">//导入多个成员时，同样可以使用别名</div><div class="line">import &#123;reallyReallyLongModuleMemberName as shortName, anotherLongModuleName as short&#125; from &quot;my-module&quot;;</div><div class="line">//导入一个模块，但不进行任何绑定</div><div class="line">import &quot;my-module&quot;;</div></pre></td></tr></table></figure></p>
-<p><strong>默认导入</strong><br>在模块导出时，可能会存在默认导出。同样的，在导入时可以使用import指令导出这些默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//直接导入默认值：</div><div class="line">import myDefault from &quot;my-module&quot;;</div><div class="line">//也可以在命名空间导入和名称导入中，同时使用默认导入：</div><div class="line">import myDefault, * as myModule from &quot;my-module&quot;;// myModule 做为命名空间使用 </div><div class="line">//或</div><div class="line">import myDefault, &#123;foo, bar&#125; from &quot;my-module&quot;; // 指定成员导入</div></pre></td></tr></table></figure></p>
-<p><code>import</code>可能会有以下几种形式的导入语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import defaultMember from &quot;module-name&quot;;</div><div class="line">import * as name from &quot;module-name&quot;;</div><div class="line">import &#123; member &#125; from &quot;module-name&quot;;</div><div class="line">import &#123; member as alias &#125; from &quot;module-name&quot;;</div><div class="line">import &#123; member1 , member2 &#125; from &quot;module-name&quot;;</div><div class="line">import &#123; member1 , member2 as alias2 , [...] &#125; from &quot;module-name&quot;;</div><div class="line">import defaultMember, &#123; member [ , [...] ] &#125; from &quot;module-name&quot;;</div><div class="line">import defaultMember, * as name from &quot;module-name&quot;;</div><div class="line">import &quot;module-name&quot;;</div></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong><code>export</code>命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">export 1;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">var m = 1;</span><br><span class="line">export m;</span><br><span class="line"></span><br><span class="line">// 正确写法一</span><br><span class="line">export var m = 1;</span><br><span class="line"></span><br><span class="line">// 正确写法二</span><br><span class="line">var m = 1;</span><br><span class="line">export &#123;m&#125;;</span><br><span class="line"></span><br><span class="line">// 正确写法三</span><br><span class="line">var n = 1;</span><br><span class="line">export &#123;n as m&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><p><code>import</code>语法声明用于从已导出的模块、脚本中导入函数、对象、指定文件（或模块）的原始值。<code>import</code>模块导入与<code>export</code>模块导出功能相对应，也存在两种模块导入方式：<code>命名式导入</code>（名称导入）和<code>默认导入</code>（定义式导入）。<br><strong>命名式导入</strong><br>我们可以通过指定名称，就是将这些成员插入到当作用域中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//可以导入单个成员或多个成员：</span><br><span class="line">import &#123;myMember&#125; from &quot;my-module&quot;;</span><br><span class="line">import &#123;foo, bar&#125; from &quot;my-module&quot;;</span><br><span class="line">//通过*符号，我们可以导入模块中的全部属性和方法</span><br><span class="line">import * as myModule from &quot;my-module&quot;;</span><br><span class="line">//也可以使用as对导入成员重命名，以方便在当前模块内使用：</span><br><span class="line">import &#123;reallyReallyLongModuleMemberName as shortName&#125; from &quot;my-module&quot;;</span><br><span class="line">//导入多个成员时，同样可以使用别名</span><br><span class="line">import &#123;reallyReallyLongModuleMemberName as shortName, anotherLongModuleName as short&#125; from &quot;my-module&quot;;</span><br><span class="line">//导入一个模块，但不进行任何绑定</span><br><span class="line">import &quot;my-module&quot;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>默认导入</strong><br>在模块导出时，可能会存在默认导出。同样的，在导入时可以使用import指令导出这些默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//直接导入默认值：</span><br><span class="line">import myDefault from &quot;my-module&quot;;</span><br><span class="line">//也可以在命名空间导入和名称导入中，同时使用默认导入：</span><br><span class="line">import myDefault, * as myModule from &quot;my-module&quot;;// myModule 做为命名空间使用 </span><br><span class="line">//或</span><br><span class="line">import myDefault, &#123;foo, bar&#125; from &quot;my-module&quot;; // 指定成员导入</span><br></pre></td></tr></table></figure></p>
+<p><code>import</code>可能会有以下几种形式的导入语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import defaultMember from &quot;module-name&quot;;</span><br><span class="line">import * as name from &quot;module-name&quot;;</span><br><span class="line">import &#123; member &#125; from &quot;module-name&quot;;</span><br><span class="line">import &#123; member as alias &#125; from &quot;module-name&quot;;</span><br><span class="line">import &#123; member1 , member2 &#125; from &quot;module-name&quot;;</span><br><span class="line">import &#123; member1 , member2 as alias2 , [...] &#125; from &quot;module-name&quot;;</span><br><span class="line">import defaultMember, &#123; member [ , [...] ] &#125; from &quot;module-name&quot;;</span><br><span class="line">import defaultMember, * as name from &quot;module-name&quot;;</span><br><span class="line">import &quot;module-name&quot;;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><code>name</code>－从将要导入模块中收到的导出值的名称</li>
 <li><code>member</code>, memberN－从导出模块，导入指定名称的多个成员</li>
@@ -540,7 +540,7 @@
 <li><code>as</code>－重命名导入成员名称（“标识符”）</li>
 <li><code>from</code>－从已经存在的模块、脚本文件等导入</li>
 </ul>
-<p>由于<code>import</code>是静态执行，所以不能使用表达式和变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 报错</div><div class="line">import &#123; &apos;f&apos; + &apos;oo&apos; &#125; from &apos;my_module&apos;;</div><div class="line"></div><div class="line">// 报错</div><div class="line">let module = &apos;my_module&apos;;</div><div class="line">import &#123; foo &#125; from module;</div><div class="line"></div><div class="line">// 报错</div><div class="line">if (x === 1) &#123;</div><div class="line">  import &#123; foo &#125; from &apos;module1&apos;;</div><div class="line">&#125; else &#123;</div><div class="line">  import &#123; foo &#125; from &apos;module2&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于<code>import</code>是静态执行，所以不能使用表达式和变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">import &#123; &apos;f&apos; + &apos;oo&apos; &#125; from &apos;my_module&apos;;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">let module = &apos;my_module&apos;;</span><br><span class="line">import &#123; foo &#125; from module;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">if (x === 1) &#123;</span><br><span class="line">  import &#123; foo &#125; from &apos;module1&apos;;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  import &#123; foo &#125; from &apos;module2&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>注意：</strong> <code>export</code>和<code>import</code>命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错。这是因为处于条件代码块之中，就没法做静态优化了，违背了ES6模块的设计初衷。</p>
 
       
@@ -650,9 +650,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/cat.jpeg"
-                alt="董繁爱" />
+              <img class="site-author-image" itemprop="image" src="/images/cat.jpeg" alt="董繁爱">
             
               <p class="site-author-name" itemprop="name">董繁爱</p>
               <p class="site-description motion-element" itemprop="description">技术博客</p>
@@ -665,7 +663,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -742,7 +740,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

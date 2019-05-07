@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -80,9 +80,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -100,7 +100,7 @@
 
 
 
-  <meta name="keywords" content="Vue," />
+  <meta name="keywords" content="Vue,">
 
 
 
@@ -152,7 +152,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/20/vueHandBook2/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/20/vueHandBook2/">
 
 
 
@@ -186,7 +186,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Rose</span>
         <span class="logo-line-after"><i></i></span>
@@ -216,7 +216,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -226,7 +226,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -236,7 +236,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -246,7 +246,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -289,7 +289,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="董繁爱">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/cat.jpeg">
     </span>
 
@@ -325,7 +325,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -376,30 +376,30 @@
       
         <p>过滤器，本质上都是函数。其作用在于用户输入数据后，它能够进行处理，并返回一个数据结果。使用管道符（ | ）进行连接。<br>Vue支持在任何出现表达式的地方添加过滤器。<br>过滤器可以接受参数，参数跟在过滤器名称后面，参数之间以空格分隔。</p>
 <h1 id="内置过滤器"><a href="#内置过滤器" class="headerlink" title="内置过滤器"></a>内置过滤器</h1><h2 id="字母操作"><a href="#字母操作" class="headerlink" title="字母操作"></a>字母操作</h2><p>Vue 内置了<code>capitalize</code>、<code>uppercase</code>、<code>lowercase</code>三个过滤器用于处理英文字符。注：这三个过滤器仅针对英文字符串使用。</p>
-<h3 id="capitalize"><a href="#capitalize" class="headerlink" title="capitalize"></a>capitalize</h3><p>capitalize 过滤器用于将表达式中的首字母转换为大写形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; &apos;fvds&apos; | capitalize &#125;&#125;</div><div class="line">// &apos;fvds&apos; =&gt; &apos;Fvds&apos;</div></pre></td></tr></table></figure></p>
-<h3 id="uppercase"><a href="#uppercase" class="headerlink" title="uppercase"></a>uppercase</h3><p>uppercase 过滤器用于将表达式中的所有字母转换为大写形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; &apos;fvds&apos; | uppercase &#125;&#125;</div><div class="line">// &apos;fvds&apos; =&gt; &apos;FVDS&apos;</div></pre></td></tr></table></figure></p>
-<h3 id="lowercase"><a href="#lowercase" class="headerlink" title="lowercase"></a>lowercase</h3><p>lowercase 过滤器用于将表达式中的所有字母转换为小写形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; &apos;FVDS&apos; | lowercase &#125;&#125;</div><div class="line">// &apos;FVDS&apos; =&gt; &apos;fvds&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="capitalize"><a href="#capitalize" class="headerlink" title="capitalize"></a>capitalize</h3><p>capitalize 过滤器用于将表达式中的首字母转换为大写形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; &apos;fvds&apos; | capitalize &#125;&#125;</span><br><span class="line">// &apos;fvds&apos; =&gt; &apos;Fvds&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="uppercase"><a href="#uppercase" class="headerlink" title="uppercase"></a>uppercase</h3><p>uppercase 过滤器用于将表达式中的所有字母转换为大写形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; &apos;fvds&apos; | uppercase &#125;&#125;</span><br><span class="line">// &apos;fvds&apos; =&gt; &apos;FVDS&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="lowercase"><a href="#lowercase" class="headerlink" title="lowercase"></a>lowercase</h3><p>lowercase 过滤器用于将表达式中的所有字母转换为小写形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; &apos;FVDS&apos; | lowercase &#125;&#125;</span><br><span class="line">// &apos;FVDS&apos; =&gt; &apos;fvds&apos;</span><br></pre></td></tr></table></figure></p>
 <h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>Vue 内置了<code>limitBy</code>、<code>filterBy</code>、<code>orderBy</code>三个过滤器用于处理并返回过滤后的数组。</p>
 <blockquote>
 <p>注意：如与v-for搭配使用，这三个过滤器所处理的表达式的值必须是数组。</p>
 </blockquote>
-<h3 id="limitBy"><a href="#limitBy" class="headerlink" title="limitBy"></a>limitBy</h3><p>limitBy 过滤器的作用是限制数组为开始的前 N 个元素，其中 N 由传入的第一个参数指定。第二个参数可选，用于指定开始的偏移量，默认为0，即不偏移。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!--只显示开始的 10 个元素--&gt;</div><div class="line">&lt;div v-for=&quot;item in items | limitBy 10&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;!--显示 5到15 个元素--&gt;</div><div class="line">&lt;div v-for=&quot;item in items | limitBy 10 5&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="filterBy"><a href="#filterBy" class="headerlink" title="filterBy"></a>filterBy</h3><p>filterBy过滤器的使用比较灵活，其第一个参数可以是字符串或者函数。<br>过滤条件是：<code>&#39;string || function&#39;+in+&#39;optionKeyName&#39;</code>。<br>如果第一个参数是字符串，那么将在每个数组元素中搜索它，并返回包含该字符串的元素组成的数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-for=&quot;item in items | filterBy &apos;hello&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>如果item是个对象，过滤器将递归地在它所有的属性中搜索。为了缩小搜索范围，可以指定一个搜索字段。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-for=&quot;member in didFamily | filterBy &apos;ddfa&apos; in &apos;name&apos;&quot; &gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>也可以在多个字段中进行搜索，字段与字段之间以空格分隔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;li v-for=&quot;user in users | filterBy &apos;Chris&apos; in &apos;name&apos; &apos;nickname&apos;&quot; &gt;&lt;/li&gt;</div></pre></td></tr></table></figure></p>
-<p>还可以将搜索字段存放在一个数组中，这样当修改搜索字段时只需要修改数组即可，无须在修改View层。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- fields=[&apos;fieldA&apos;,&apos;fieldB&apos;] --&gt;</div><div class="line">&lt;div v-for=&quot;user in users | filterBy searchText in fields&quot; &gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="orderBy"><a href="#orderBy" class="headerlink" title="orderBy"></a>orderBy</h3><p>orderBy 过滤器的作用是返回排序后的数组。过滤条件是：<code>&#39;string || array || function&#39;+&#39;order &gt;= 0为升序 || order &lt; 0为降序&#39;</code>。第一个参数可以是字符串、数组或者函数。第二个参数order可选，决定结果为升序或降序排列，默认为1，即升序排列。<br>若输入参数为字符串，则可同时传入多个字符串作为排序键名，字符串之间以空格分隔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;li v-for=&quot;user in users | orderBy &apos;lastName&apos; in &apos;firstName&apos; &apos;age&apos;&quot; &gt;</div><div class="line">&#123;&#123;user.lastName || user.firstName || user.age &#125;&#125;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><p>Vue中json 过滤器本质上是JSON.stringify()的精简缩略版，可将表达式的值转换为JSON字符串，即输出表达式经过JSON.stringify()处理后的结果。json 可接受一个类型为Number的参数，用于决定转换后的JSON字符串的缩进距离，如果不输入该参数，则默认为2。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;pre&gt;&#123;&#123;didFamily | json 4&#125;&#125;&lt;/pre&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="limitBy"><a href="#limitBy" class="headerlink" title="limitBy"></a>limitBy</h3><p>limitBy 过滤器的作用是限制数组为开始的前 N 个元素，其中 N 由传入的第一个参数指定。第二个参数可选，用于指定开始的偏移量，默认为0，即不偏移。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--只显示开始的 10 个元素--&gt;</span><br><span class="line">&lt;div v-for=&quot;item in items | limitBy 10&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;!--显示 5到15 个元素--&gt;</span><br><span class="line">&lt;div v-for=&quot;item in items | limitBy 10 5&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="filterBy"><a href="#filterBy" class="headerlink" title="filterBy"></a>filterBy</h3><p>filterBy过滤器的使用比较灵活，其第一个参数可以是字符串或者函数。<br>过滤条件是：<code>&#39;string || function&#39;+in+&#39;optionKeyName&#39;</code>。<br>如果第一个参数是字符串，那么将在每个数组元素中搜索它，并返回包含该字符串的元素组成的数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;item in items | filterBy &apos;hello&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果item是个对象，过滤器将递归地在它所有的属性中搜索。为了缩小搜索范围，可以指定一个搜索字段。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;member in didFamily | filterBy &apos;ddfa&apos; in &apos;name&apos;&quot; &gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>也可以在多个字段中进行搜索，字段与字段之间以空格分隔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;user in users | filterBy &apos;Chris&apos; in &apos;name&apos; &apos;nickname&apos;&quot; &gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure></p>
+<p>还可以将搜索字段存放在一个数组中，这样当修改搜索字段时只需要修改数组即可，无须在修改View层。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- fields=[&apos;fieldA&apos;,&apos;fieldB&apos;] --&gt;</span><br><span class="line">&lt;div v-for=&quot;user in users | filterBy searchText in fields&quot; &gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="orderBy"><a href="#orderBy" class="headerlink" title="orderBy"></a>orderBy</h3><p>orderBy 过滤器的作用是返回排序后的数组。过滤条件是：<code>&#39;string || array || function&#39;+&#39;order &gt;= 0为升序 || order &lt; 0为降序&#39;</code>。第一个参数可以是字符串、数组或者函数。第二个参数order可选，决定结果为升序或降序排列，默认为1，即升序排列。<br>若输入参数为字符串，则可同时传入多个字符串作为排序键名，字符串之间以空格分隔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;user in users | orderBy &apos;lastName&apos; in &apos;firstName&apos; &apos;age&apos;&quot; &gt;</span><br><span class="line">&#123;&#123;user.lastName || user.firstName || user.age &#125;&#125;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><p>Vue中json 过滤器本质上是JSON.stringify()的精简缩略版，可将表达式的值转换为JSON字符串，即输出表达式经过JSON.stringify()处理后的结果。json 可接受一个类型为Number的参数，用于决定转换后的JSON字符串的缩进距离，如果不输入该参数，则默认为2。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;&#123;&#123;didFamily | json 4&#125;&#125;&lt;/pre&gt;</span><br></pre></td></tr></table></figure></p>
 <h2 id="currency"><a href="#currency" class="headerlink" title="currency"></a>currency</h2><p>currency 过滤器的作用是将数字值转换为货币形式输出。其第一个参数接受类型为 String 的货币符号，如果不输入，则默认为美元符号$。第二个参数接受类型为Number的小数位，如果不输入，则默认为2.</p>
 <blockquote>
-<p>注意:如果第一个参数采取默认形式，而需要第二个参数修改小数位，则第一个参数不可省略。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; amount | currency  &#125;&#125;</div><div class="line">// 12345 =&gt; $12,345.00</div><div class="line">&#123;&#123; amount | currency  &apos;￥&apos;&#125;&#125;</div><div class="line">// 12345 =&gt; ￥12,345.00</div><div class="line">&#123;&#123; amount | currency  &apos;$&apos; 3&#125;&#125;</div><div class="line">// 12345 =&gt; $12,345.000</div></pre></td></tr></table></figure></p>
+<p>注意:如果第一个参数采取默认形式，而需要第二个参数修改小数位，则第一个参数不可省略。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; amount | currency  &#125;&#125;</span><br><span class="line">// 12345 =&gt; $12,345.00</span><br><span class="line">&#123;&#123; amount | currency  &apos;￥&apos;&#125;&#125;</span><br><span class="line">// 12345 =&gt; ￥12,345.00</span><br><span class="line">&#123;&#123; amount | currency  &apos;$&apos; 3&#125;&#125;</span><br><span class="line">// 12345 =&gt; $12,345.000</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="debounce"><a href="#debounce" class="headerlink" title="debounce"></a>debounce</h2><p>debounce 过滤器的作用是延迟处理器一定的时间执行。其接受的表达式的值必须为函数，因此其一般与v-on等指令结合使用。debounce 接受一个可选的参数作为延迟时间，单位为毫秒。如果没有该参数，则默认的延迟时间为300毫秒。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input @keyup=&quot;onKeyup | debounce 500&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="debounce"><a href="#debounce" class="headerlink" title="debounce"></a>debounce</h2><p>debounce 过滤器的作用是延迟处理器一定的时间执行。其接受的表达式的值必须为函数，因此其一般与v-on等指令结合使用。debounce 接受一个可选的参数作为延迟时间，单位为毫秒。如果没有该参数，则默认的延迟时间为300毫秒。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input @keyup=&quot;onKeyup | debounce 500&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
 <h1 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h1><p>在Vue中存在一个全局函数 Vue.filter 用于构造过滤器。<code>Vue.filter(ID,function(){})</code><br>该函数接受两个参数，其中第一个为过滤器ID，作为用户自定义过滤器的唯一标识；第二个参数则为具体的过滤器函数。过滤器函数以值为参数，返回转换后的值。</p>
-<h2 id="单个参数"><a href="#单个参数" class="headerlink" title="单个参数"></a>单个参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Vue.filter(&apos;reverse&apos;, function (value) &#123;</div><div class="line">  return value.split(&apos;&apos;).reverse().join(&apos;&apos;)</div><div class="line">&#125;)</div><div class="line">&lt;!-- &apos;abc&apos; =&gt; &apos;cba&apos; --&gt;</div><div class="line">&lt;span v-text=&quot;message | reverse&quot;&gt;&lt;/span&gt;</div></pre></td></tr></table></figure>
-<h2 id="多个参数"><a href="#多个参数" class="headerlink" title="多个参数"></a>多个参数</h2><p>过滤器函数除了以值为参数外，还支持任意数量的参数，参数之间以空格分隔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Vue.filter(&apos;wrap&apos;, function (value, begin, end) &#123;</div><div class="line">  return begin + value + end</div><div class="line">&#125;)</div><div class="line">&lt;!-- &apos;hello&apos; =&gt; &apos;before hello after&apos; --&gt;</div><div class="line">&lt;span v-text=&quot;message | wrap &apos;before&apos; &apos;after&apos;&quot;&gt;&lt;/span&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="双向过滤器"><a href="#双向过滤器" class="headerlink" title="双向过滤器"></a>双向过滤器</h2><p>目前我们使用过滤器都是在把来自模型的值显示在视图之前转换它。不过也可以定义一个过滤器，在把来自视图（<code>&lt;input&gt;</code>元素）的值写回模型之前转化它，即双向过滤器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Vue.filter(&apos;currencyDisplay&apos;, &#123;</div><div class="line">  // model -&gt; view</div><div class="line">  // 在更新 `&lt;input&gt;` 元素之前格式化值</div><div class="line">  read: function(val) &#123;</div><div class="line">    return &apos;$&apos;+val.toFixed(2)</div><div class="line">  &#125;,</div><div class="line">  // view -&gt; model</div><div class="line">  // 在写回数据之前格式化值</div><div class="line">  write: function(val, oldVal) &#123;</div><div class="line">    var number = +val.replace(/[^\d.]/g, &apos;&apos;)</div><div class="line">    return isNaN(number) ? 0 : parseFloat(number.toFixed(2))</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h2 id="动态参数"><a href="#动态参数" class="headerlink" title="动态参数"></a>动态参数</h2><p>如果过滤器参数没有用引号包起来，则它会在当前 vm 作用域内动态计算。另外，过滤器函数的 <code>this</code> 始终指向调用它的 vm。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;input v-model=&quot;userInput&quot;&gt;</div><div class="line">&lt;span&gt;&#123;&#123;msg | concat userInput&#125;&#125;&lt;/span&gt;</div><div class="line"></div><div class="line">Vue.filter(&apos;concat&apos;, function (value, input) &#123;</div><div class="line">  // `input` === `this.userInput`</div><div class="line">  return value + input</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="单个参数"><a href="#单个参数" class="headerlink" title="单个参数"></a>单个参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(&apos;reverse&apos;, function (value) &#123;</span><br><span class="line">  return value.split(&apos;&apos;).reverse().join(&apos;&apos;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;!-- &apos;abc&apos; =&gt; &apos;cba&apos; --&gt;</span><br><span class="line">&lt;span v-text=&quot;message | reverse&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="多个参数"><a href="#多个参数" class="headerlink" title="多个参数"></a>多个参数</h2><p>过滤器函数除了以值为参数外，还支持任意数量的参数，参数之间以空格分隔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(&apos;wrap&apos;, function (value, begin, end) &#123;</span><br><span class="line">  return begin + value + end</span><br><span class="line">&#125;)</span><br><span class="line">&lt;!-- &apos;hello&apos; =&gt; &apos;before hello after&apos; --&gt;</span><br><span class="line">&lt;span v-text=&quot;message | wrap &apos;before&apos; &apos;after&apos;&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="双向过滤器"><a href="#双向过滤器" class="headerlink" title="双向过滤器"></a>双向过滤器</h2><p>目前我们使用过滤器都是在把来自模型的值显示在视图之前转换它。不过也可以定义一个过滤器，在把来自视图（<code>&lt;input&gt;</code>元素）的值写回模型之前转化它，即双向过滤器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(&apos;currencyDisplay&apos;, &#123;</span><br><span class="line">  // model -&gt; view</span><br><span class="line">  // 在更新 `&lt;input&gt;` 元素之前格式化值</span><br><span class="line">  read: function(val) &#123;</span><br><span class="line">    return &apos;$&apos;+val.toFixed(2)</span><br><span class="line">  &#125;,</span><br><span class="line">  // view -&gt; model</span><br><span class="line">  // 在写回数据之前格式化值</span><br><span class="line">  write: function(val, oldVal) &#123;</span><br><span class="line">    var number = +val.replace(/[^\d.]/g, &apos;&apos;)</span><br><span class="line">    return isNaN(number) ? 0 : parseFloat(number.toFixed(2))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="动态参数"><a href="#动态参数" class="headerlink" title="动态参数"></a>动态参数</h2><p>如果过滤器参数没有用引号包起来，则它会在当前 vm 作用域内动态计算。另外，过滤器函数的 <code>this</code> 始终指向调用它的 vm。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model=&quot;userInput&quot;&gt;</span><br><span class="line">&lt;span&gt;&#123;&#123;msg | concat userInput&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">Vue.filter(&apos;concat&apos;, function (value, input) &#123;</span><br><span class="line">  // `input` === `this.userInput`</span><br><span class="line">  return value + input</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>注意: 1、需要给定过滤器一个唯一标识。2、过滤器函数的作用是输入表达式的值，经过处理后输出。</p>
 </blockquote>
@@ -511,9 +511,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/cat.jpeg"
-                alt="董繁爱" />
+              <img class="site-author-image" itemprop="image" src="/images/cat.jpeg" alt="董繁爱">
             
               <p class="site-author-name" itemprop="name">董繁爱</p>
               <p class="site-description motion-element" itemprop="description">技术博客</p>
@@ -526,7 +524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +601,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
