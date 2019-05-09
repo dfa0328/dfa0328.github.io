@@ -119,12 +119,12 @@
 <meta property="og:site_name" content="Rose">
 <meta property="og:description" content="Vue 生命周期钩子有beforeCreate、created、beforeMount、mounted、beforeUpdate、updated、activated、deactivated、beforeDestroy、destroyed、errorCaptured。所有的生命周期钩子自动绑定this上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 你不能使用箭头函数来定义一个生命">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/11/23/vueComponent/vueComponent/vue.png">
+<meta property="og:image" content="http://yoursite.com/2017/11/23/vueComponent/vue.png">
 <meta property="og:updated_time" content="2018-01-02T06:53:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue生命周期">
 <meta name="twitter:description" content="Vue 生命周期钩子有beforeCreate、created、beforeMount、mounted、beforeUpdate、updated、activated、deactivated、beforeDestroy、destroyed、errorCaptured。所有的生命周期钩子自动绑定this上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 你不能使用箭头函数来定义一个生命">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/23/vueComponent/vueComponent/vue.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/11/23/vueComponent/vue.png">
 
 
 
@@ -377,7 +377,7 @@
 
       
         <p>Vue 生命周期钩子有<code>beforeCreate</code>、<code>created</code>、<code>beforeMount</code>、<code>mounted</code>、<code>beforeUpdate</code>、<code>updated</code>、<code>activated</code>、<code>deactivated</code>、<code>beforeDestroy</code>、<code>destroyed</code>、<code>errorCaptured</code>。<br>所有的生命周期钩子自动绑定<code>this</code>上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 <strong>你不能使用箭头函数来定义一个生命周期方法</strong>。</p>
-<p><img src="vueComponent/vue.png" width="600" style="border:none"></p>
+<p><img src="/2017/11/23/vueComponent/vue.png" width="600" style="border:none"></p>
 <h2 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h2><p><strong>在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。</strong>注意是之前，此时data、watcher、methods统统滴没有。这个时候的vue实例还什么都没有，但是$route对象是存在的，可以根据路由信息进行重定向之类的操作。</p>
 <h2 id="created"><a href="#created" class="headerlink" title="created"></a>created</h2><p><strong>在实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，<code>$el</code>属性目前不可见。</strong>此时 this.$data 可以访问，<code>watcher</code>、<code>events</code>、<code>methods</code>也出现了，若根据后台接口动态改变data和methods的场景下，可以使用。</p>
 <h2 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h2><p><strong>在挂载开始之前被调用：相关的<code>render</code>函数首次被调用。该钩子在服务器端渲染期间不被调用。</strong>但是render正在执行中，此时DOM还是无法操作的。相比于created生命周期，此时只是多了一个<code>$el</code>的属性，然而其值为<code>undefined</code>。使用场景我上文已经提到了，页面渲染时所需要的数据，应尽量在这之前完成赋值。</p>
@@ -521,7 +521,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

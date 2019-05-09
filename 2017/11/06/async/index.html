@@ -119,14 +119,14 @@
 <meta property="og:site_name" content="Rose">
 <meta property="og:description" content="异步编程的优势与难点优势：非阻塞I/O可以使CPU与I/O并不相互依赖等待，让资源得到更好的利用。对于网络应用而言，并行带来的想象空间更大，延展而开的是分布式和云。并行使得各个单点之间能够更有效地组织起来。 难点：异常处理、函数嵌套过深、阻塞代码、多线程编程、异步转同步。异常处理：过去我们处理异常时，通常使用try/catch/final语句进行异常捕获。异步I/O的实现主要包含两个阶段：提交请求">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/11/06/async/async/async1.jpeg">
-<meta property="og:image" content="http://yoursite.com/2017/11/06/async/async/async2.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/06/async/async/async3.jpeg">
+<meta property="og:image" content="http://yoursite.com/2017/11/06/async/async1.jpeg">
+<meta property="og:image" content="http://yoursite.com/2017/11/06/async/async2.png">
+<meta property="og:image" content="http://yoursite.com/2017/11/06/async/async3.jpeg">
 <meta property="og:updated_time" content="2017-11-09T02:28:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript异步编程">
 <meta name="twitter:description" content="异步编程的优势与难点优势：非阻塞I/O可以使CPU与I/O并不相互依赖等待，让资源得到更好的利用。对于网络应用而言，并行带来的想象空间更大，延展而开的是分布式和云。并行使得各个单点之间能够更有效地组织起来。 难点：异常处理、函数嵌套过深、阻塞代码、多线程编程、异步转同步。异常处理：过去我们处理异常时，通常使用try/catch/final语句进行异常捕获。异步I/O的实现主要包含两个阶段：提交请求">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/06/async/async/async1.jpeg">
+<meta name="twitter:image" content="http://yoursite.com/2017/11/06/async/async1.jpeg">
 
 
 
@@ -396,13 +396,13 @@
 <ul>
 <li>Promise操作只会处在3种状态的一种：未完成态(pending)、完成态(fulfilled)和失败态(rejected)。</li>
 <li>Promise的状态只会出现从未完成态向完成态或失败态转化，不能逆反。完成态和失败态不能互相转化。</li>
-<li>Promise的状态一旦转化，将不能更改。<br>Promise的状态转化示意图如下：<br><img src="async/async1.jpeg" width="400" style="border:none"></li>
+<li>Promise的状态一旦转化，将不能更改。<br>Promise的状态转化示意图如下：<br><img src="/2017/11/06/async/async1.jpeg" width="400" style="border:none"></li>
 <li>Promise 有一个 then 方法，then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数。第三个函数用于处理进度信息（对进度回调的支持是可选的）。then()方法只接受function对象，其余对象将被忽略。then()方法继续返回Promise对象，以实现链式调用。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">then(fulfilledHandler, errorHandler, progressHandler)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//Promise</span><br><span class="line">function Promise() &#123;</span><br><span class="line">    this.handler = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">Promise.prototype.then = function (onFulfilled, onRejected) &#123;</span><br><span class="line">    var handler = &#123;&#125;</span><br><span class="line">    if (typeof onFulfilled === &apos;function&apos;) &#123;</span><br><span class="line">        handler.resolve = onFulfilled</span><br><span class="line">    &#125;</span><br><span class="line">    if (typeof onRejected === &apos;function&apos;) &#123;</span><br><span class="line">        handler.reject = onRejected</span><br><span class="line">    &#125;</span><br><span class="line">    this.handler = handler</span><br><span class="line">    return this</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="Deferred"><a href="#Deferred" class="headerlink" title="Deferred"></a>Deferred</h4><p>then()方法所做的事情是将回调函数存放起来。为了完成整个流程，还需要触发执行这些回调函数的地方，实现这些功能的对象通常被称为Deferred，即延迟对象。<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function Deferred() &#123;</span><br><span class="line"></span><br><span class="line">    /* 状态：默认 等待态 pending */</span><br><span class="line">    this.state = &apos;pending&apos;;</span><br><span class="line"></span><br><span class="line">    this.promise = new Promise()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Deferred.prototype.resolve = function (obj) &#123;</span><br><span class="line">    this.state = &apos;fulfilled&apos;</span><br><span class="line">    var handler = this.promise.handler</span><br><span class="line">    if (handler &amp;&amp; handler.resolve) &#123;</span><br><span class="line">        handler.resolve(obj)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Deferred.prototype.reject = function (obj) &#123;</span><br><span class="line">    this.state = &apos;rejected&apos;</span><br><span class="line">    var handler = this.promise.handler</span><br><span class="line">    if (handler &amp;&amp; handler.reject) &#123;</span><br><span class="line">        handler.reject(obj)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里的状态和方法之间的对应关系图：<br><img src="async/async2.png" width="400" style="border:none"><br>Promise和Deferred的差别：Deferred主要是用于内部，用于维护异步模型的状态。Promise则作用于外部，通过then()方法暴露给外部，以添加自定义逻辑。整体关系如下图：<br><img src="async/async3.jpeg" width="650" style="border:none"><br>Promise/Deferred模式，将业务中不可变的部分封装在了Deferred中，将可变的部分交给了Promise。</p>
+<p>这里的状态和方法之间的对应关系图：<br><img src="/2017/11/06/async/async2.png" width="400" style="border:none"><br>Promise和Deferred的差别：Deferred主要是用于内部，用于维护异步模型的状态。Promise则作用于外部，通过then()方法暴露给外部，以添加自定义逻辑。整体关系如下图：<br><img src="/2017/11/06/async/async3.jpeg" width="650" style="border:none"><br>Promise/Deferred模式，将业务中不可变的部分封装在了Deferred中，将可变的部分交给了Promise。</p>
 <h3 id="流程控制库"><a href="#流程控制库" class="headerlink" title="流程控制库"></a>流程控制库</h3><p>这里简单提一下几个主流的流程控制库：<code>尾触发与Next</code>、<code>async</code>、<code>Step</code>、<code>wind</code>;</p>
 <h4 id="尾触发与Next"><a href="#尾触发与Next" class="headerlink" title="尾触发与Next"></a>尾触发与Next</h4><p>除了事件和Promise外，还有一类方法是需要手工调用才能持续执行后续调用的，我们将此类方法叫做<code>尾触发</code>，常见的关键词是next。事实上尾触发目前应用最多的地方是Connect的中间件。</p>
 <h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><p>async是nodejs里的流程控制模块,也可以用在浏览器端,主要是用来控制多个异步调用时的顺序以及依赖。async模块提供了20多个方法用于处理异步的各种协作模式，这里只介绍几种典型用法。</p>
@@ -621,7 +621,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
