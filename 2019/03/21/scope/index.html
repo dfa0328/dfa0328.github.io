@@ -111,18 +111,18 @@
 
 
 
-<meta name="description" content="什么是作用域简单来说作用域就是一个执行环境，决定了你的代码在运行时，各个变量、函数和对象的可访问性。 JavaScript的作用域JavaScript的作用域有全局作用域,函数作用域,块级作用域,词法作用域,动态作用域。 全局作用域函数作用域块级作用域词法作用域动态作用域">
+<meta name="description" content="什么是作用域简单来说作用域就是一个执行环境，这个执行环境决定了变量的生命周期，以及各个变量、函数和对象的可访问性（ 哪一部分代码可以访问其中的变量 ）。 JavaScript的作用域JavaScript的作用域有全局作用域,函数作用域,块级作用域或词法作用域,动态作用域。 全局作用域声明在函数外面的变量，拥有全局作用域。 函数作用域声明在函数内面的变量，拥有函数作用域。每个函数在调用的时候会创建一">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript作用域">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/scope/index.html">
 <meta property="og:site_name" content="Rose">
-<meta property="og:description" content="什么是作用域简单来说作用域就是一个执行环境，决定了你的代码在运行时，各个变量、函数和对象的可访问性。 JavaScript的作用域JavaScript的作用域有全局作用域,函数作用域,块级作用域,词法作用域,动态作用域。 全局作用域函数作用域块级作用域词法作用域动态作用域">
+<meta property="og:description" content="什么是作用域简单来说作用域就是一个执行环境，这个执行环境决定了变量的生命周期，以及各个变量、函数和对象的可访问性（ 哪一部分代码可以访问其中的变量 ）。 JavaScript的作用域JavaScript的作用域有全局作用域,函数作用域,块级作用域或词法作用域,动态作用域。 全局作用域声明在函数外面的变量，拥有全局作用域。 函数作用域声明在函数内面的变量，拥有函数作用域。每个函数在调用的时候会创建一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-13T06:34:53.600Z">
+<meta property="og:updated_time" content="2019-05-15T07:41:09.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript作用域">
-<meta name="twitter:description" content="什么是作用域简单来说作用域就是一个执行环境，决定了你的代码在运行时，各个变量、函数和对象的可访问性。 JavaScript的作用域JavaScript的作用域有全局作用域,函数作用域,块级作用域,词法作用域,动态作用域。 全局作用域函数作用域块级作用域词法作用域动态作用域">
+<meta name="twitter:description" content="什么是作用域简单来说作用域就是一个执行环境，这个执行环境决定了变量的生命周期，以及各个变量、函数和对象的可访问性（ 哪一部分代码可以访问其中的变量 ）。 JavaScript的作用域JavaScript的作用域有全局作用域,函数作用域,块级作用域或词法作用域,动态作用域。 全局作用域声明在函数外面的变量，拥有全局作用域。 函数作用域声明在函数内面的变量，拥有函数作用域。每个函数在调用的时候会创建一">
 
 
 
@@ -374,9 +374,11 @@
       
 
       
-        <h2 id="什么是作用域"><a href="#什么是作用域" class="headerlink" title="什么是作用域"></a>什么是作用域</h2><p>简单来说作用域就是一个<code>执行环境</code>，决定了你的代码在运行时，各个变量、函数和对象的可访问性。</p>
-<p><strong>JavaScript的作用域</strong><br>JavaScript的作用域有<code>全局作用域</code>,<code>函数作用域</code>,<code>块级作用域</code>,<code>词法作用域</code>,<code>动态作用域</code>。</p>
-<h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><h3 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h3>
+        <h2 id="什么是作用域"><a href="#什么是作用域" class="headerlink" title="什么是作用域"></a>什么是作用域</h2><p>简单来说作用域就是一个<code>执行环境</code>，这个执行环境决定了变量的生命周期，以及各个变量、函数和对象的可访问性（ 哪一部分代码可以访问其中的变量 ）。</p>
+<p><strong>JavaScript的作用域</strong><br>JavaScript的作用域有<code>全局作用域</code>,<code>函数作用域</code>,<code>块级作用域</code>或<code>词法作用域</code>,<code>动态作用域</code>。</p>
+<h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><p>声明在函数外面的变量，拥有全局作用域。</p>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>声明在函数内面的变量，拥有函数作用域。每个函数在调用的时候会创建一个新的作用域。</p>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><h3 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h3>
       
     </div>
     
@@ -406,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/28/compile/" rel="next" title="JS编译原理">
-                <i class="fa fa-chevron-left"></i> JS编译原理
+              <a href="/2019/03/17/EditorConfig/" rel="next" title="前端之EditorConfig">
+                <i class="fa fa-chevron-left"></i> 前端之EditorConfig
               </a>
             
           </div>
@@ -519,7 +521,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

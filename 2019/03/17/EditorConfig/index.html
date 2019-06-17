@@ -100,7 +100,7 @@
 
 
 
-  <meta name="keywords" content="Webpack,">
+  <meta name="keywords" content="配置,">
 
 
 
@@ -111,18 +111,21 @@
 
 
 
-<meta name="description" content="打包速度优化设置 test &amp;amp; include &amp;amp; excludebabel是影响打包速度的原因之一 12345678910111213module: &amp;#123;        loaders: [	         &amp;#123; 	            test: /\.js$/,	            loader: &amp;quot;react-hot-loader!babe">
-<meta name="keywords" content="Webpack">
+<meta name="description" content="EditorConfig是什么？EditorConfig是一套用于统一代码格式的解决方案。它可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格。 如何使用EditorConfig？1、在项目根创建一个名为 .editorconfig 的文件。该文件的内容定义该项目的编码规范。2、安装与编辑器对应的 EditorConfig 插件。 注意：编辑器是否需要安装插件可以查看官网列出的统计">
+<meta name="keywords" content="配置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack优化">
-<meta property="og:url" content="http://yoursite.com/2018/01/11/webpacky/index.html">
+<meta property="og:title" content="前端之EditorConfig">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/EditorConfig/index.html">
 <meta property="og:site_name" content="Rose">
-<meta property="og:description" content="打包速度优化设置 test &amp;amp; include &amp;amp; excludebabel是影响打包速度的原因之一 12345678910111213module: &amp;#123;        loaders: [	         &amp;#123; 	            test: /\.js$/,	            loader: &amp;quot;react-hot-loader!babe">
+<meta property="og:description" content="EditorConfig是什么？EditorConfig是一套用于统一代码格式的解决方案。它可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格。 如何使用EditorConfig？1、在项目根创建一个名为 .editorconfig 的文件。该文件的内容定义该项目的编码规范。2、安装与编辑器对应的 EditorConfig 插件。 注意：编辑器是否需要安装插件可以查看官网列出的统计">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T06:13:56.000Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/EditorConfig/wildcard.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/EditorConfig/attribute.png">
+<meta property="og:updated_time" content="2019-06-17T07:44:40.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack优化">
-<meta name="twitter:description" content="打包速度优化设置 test &amp;amp; include &amp;amp; excludebabel是影响打包速度的原因之一 12345678910111213module: &amp;#123;        loaders: [	         &amp;#123; 	            test: /\.js$/,	            loader: &amp;quot;react-hot-loader!babe">
+<meta name="twitter:title" content="前端之EditorConfig">
+<meta name="twitter:description" content="EditorConfig是什么？EditorConfig是一套用于统一代码格式的解决方案。它可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格。 如何使用EditorConfig？1、在项目根创建一个名为 .editorconfig 的文件。该文件的内容定义该项目的编码规范。2、安装与编辑器对应的 EditorConfig 插件。 注意：编辑器是否需要安装插件可以查看官网列出的统计">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/17/EditorConfig/wildcard.png">
 
 
 
@@ -152,13 +155,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/11/webpacky/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/EditorConfig/">
 
 
 
 
 
-  <title>webpack优化 | Rose</title>
+  <title>前端之EditorConfig | Rose</title>
   
 
 
@@ -285,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/11/webpacky/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/EditorConfig/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="董繁爱">
@@ -302,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack优化</h1>
+          <h1 class="post-title" itemprop="name headline">前端之EditorConfig</h1>
         
 
         <div class="post-meta">
@@ -314,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T18:44:45+08:00">
-                2018-01-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T14:53:28+08:00">
+                2019-03-17
               </time>
             
 
@@ -324,28 +327,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Webpack/" itemprop="url" rel="index">
-                    <span itemprop="name">Webpack</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -374,9 +355,21 @@
       
 
       
-        <h1 id="打包速度优化"><a href="#打包速度优化" class="headerlink" title="打包速度优化"></a>打包速度优化</h1><h2 id="设置-test-amp-include-amp-exclude"><a href="#设置-test-amp-include-amp-exclude" class="headerlink" title="设置 test &amp; include &amp; exclude"></a>设置 test &amp; include &amp; exclude</h2><p>babel是影响打包速度的原因之一</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">	         &#123; </span><br><span class="line">	            test: /\.js$/,</span><br><span class="line">	            loader: &quot;react-hot-loader!babel-loader&quot;,</span><br><span class="line">	            //指定打包文件 </span><br><span class="line">	            include: [path.join(process.cwd(), &apos;./src&apos;)],</span><br><span class="line">	            // 非打包文件</span><br><span class="line">	            exclude: /(node_modules|bower_components|static|test|build|configs)/</span><br><span class="line">	         &#125;</span><br><span class="line">        ],</span><br><span class="line">     </span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<p>减少使用stage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//优化前</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [&quot;react&quot;, &quot;es2015&quot;, &quot;stage-2&quot;]</span><br><span class="line">&#125;</span><br><span class="line">//优化后</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [&quot;react&quot;, &quot;es2015&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="EditorConfig是什么？"><a href="#EditorConfig是什么？" class="headerlink" title="EditorConfig是什么？"></a>EditorConfig是什么？</h2><p>EditorConfig是一套用于统一代码格式的解决方案。它可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格。</p>
+<h2 id="如何使用EditorConfig？"><a href="#如何使用EditorConfig？" class="headerlink" title="如何使用EditorConfig？"></a>如何使用EditorConfig？</h2><p>1、在项目根创建一个名为 <code>.editorconfig</code> 的文件。该文件的内容定义该项目的编码规范。<br>2、安装与编辑器对应的 <code>EditorConfig 插件</code>。</p>
+<p><strong>注意</strong>：编辑器是否需要安装插件可以<a href="https://editorconfig.org/" target="_blank" rel="noopener">查看官网列出的统计</a> </p>
+<p><strong>其工作原理</strong>：</p>
+<ul>
+<li>当打开一个文件时，EditorConfig插件会在打开文件的目录和其每一级父目录查找<code>.editorconfig</code>文件，直到有一个配置文件<code>root=true</code>。</li>
+<li>EditorConfig配置文件从上往下读取，并且路径最近的文件最后被读取。匹配的配置属性按照属性应用在代码上，所以最接近代码文件的属性优先级最高。</li>
+</ul>
+<h2 id="EditorConfig文件编码规范"><a href="#EditorConfig文件编码规范" class="headerlink" title="EditorConfig文件编码规范"></a>EditorConfig文件编码规范</h2><h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p><img src="/2019/03/17/EditorConfig/wildcard.png" width="550" style="border:none;"></p>
+<h3 id="支持的属性-常用的"><a href="#支持的属性-常用的" class="headerlink" title="支持的属性(常用的)"></a>支持的属性(常用的)</h3><p><img src="/2019/03/17/EditorConfig/attribute.png" width="820" style="border:none"></p>
+<p>注意：不是每种插件都支持所有的属性，完整版见<a href="https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties" target="_blank" rel="noopener">这里</a>。</p>
+<p><strong>官方例子</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># top-most EditorConfig file</span><br><span class="line">root = true</span><br><span class="line"></span><br><span class="line"># Unix-style newlines with a newline ending every file</span><br><span class="line">[*]</span><br><span class="line">end_of_line = lf</span><br><span class="line">insert_final_newline = true</span><br><span class="line"></span><br><span class="line"># Matches multiple files with brace expansion notation</span><br><span class="line"># Set default charset</span><br><span class="line">[*.&#123;js,py&#125;]</span><br><span class="line">charset = utf-8 </span><br><span class="line"></span><br><span class="line"># 4 space indentation</span><br><span class="line">[*.py]</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 4</span><br><span class="line"></span><br><span class="line"># Tab indentation (no size specified)</span><br><span class="line">[*.js]</span><br><span class="line">indent_style = tab</span><br><span class="line"></span><br><span class="line"># Indentation override for all JS under lib directory</span><br><span class="line">[lib/**.js]</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 2</span><br><span class="line"></span><br><span class="line"># Matches the exact files either package.json or .travis.yml</span><br><span class="line">[&#123;package.json,.travis.yml&#125;]</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 2</span><br></pre></td></tr></table></figure>
+<p>最后附上我的 <code>.editorconfig</code> 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root = true</span><br><span class="line"></span><br><span class="line">[*]</span><br><span class="line">charset = utf-8</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 2</span><br><span class="line">end_of_line = lf</span><br><span class="line">insert_final_newline = true</span><br><span class="line">trim_trailing_whitespace = true</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -394,7 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Webpack/" rel="tag"># Webpack</a>
+            <a href="/tags/配置/" rel="tag"># 配置</a>
           
         </div>
       
@@ -407,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/02/Nginx/" rel="next" title="Nginx">
-                <i class="fa fa-chevron-left"></i> Nginx
+              <a href="/2018/03/28/compile/" rel="next" title="JS编译原理">
+                <i class="fa fa-chevron-left"></i> JS编译原理
               </a>
             
           </div>
@@ -417,8 +410,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/08/email/" rel="prev" title="email">
-                email <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/21/scope/" rel="prev" title="JavaScript作用域">
+                JavaScript作用域 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -520,7 +513,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -555,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#打包速度优化"><span class="nav-number">1.</span> <span class="nav-text">打包速度优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-test-amp-include-amp-exclude"><span class="nav-number">1.1.</span> <span class="nav-text">设置 test &amp; include &amp; exclude</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#EditorConfig是什么？"><span class="nav-number">1.</span> <span class="nav-text">EditorConfig是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用EditorConfig？"><span class="nav-number">2.</span> <span class="nav-text">如何使用EditorConfig？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EditorConfig文件编码规范"><span class="nav-number">3.</span> <span class="nav-text">EditorConfig文件编码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通配符"><span class="nav-number">3.1.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持的属性-常用的"><span class="nav-number">3.2.</span> <span class="nav-text">支持的属性(常用的)</span></a></li></ol></li></ol></div>
             
 
           </div>
