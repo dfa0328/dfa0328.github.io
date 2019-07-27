@@ -15,14 +15,25 @@ tags: [JavaScript]
 
 * **分词/词法分析(Tokenizing/Lexing)**
 这个过程会将由字符组成的字符串分解成(对编程语言来说)有意义的代码块，这些代码块被称为`词法单元(token)`。
-例如`var a = 2;`。这段程序会被分解成为这些词法单元：`var、a、=、2 、;`。空格是否会被当作词法单元，取决于空格在这门语言中是否具有意义。
- 	
+例如`var a = 2;`。这段程序会被分解成为这些词法单元：`var、a、=、2 、;`。空格是否会被当作词法单元，取决于空格在这门语言中是否具有意义。   
+如下图：
+<img src="compile/ast1.png" width="660" style="border:none;" > 
+
 * **解析/语法分析(Parsing)**
 这个过程是将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树。这个树称为“抽象语法树”(Abstract Syntax Tree)，简称"AST"。
+[这个工具能在线可视化解析出一段代码的抽象语法树](http://resources.jointjs.com/demos/javascript-ast)
+[这个可以进一步看更详尽的信息](https://esprima.org/demo/parse.html)
+例如：`var a=2;`生成的抽象语法树如下图所示：
+<img src="compile/ast2.png" width="660" style="border:none" >
+详细信息如下：
+<div style="display: flex;">
+<img src="compile/ast3.png"  style="border:none;" >
+<img src="compile/ast4.png"  style="border:none;" >
+</div>
 
 * **代码生成**
-将 AST 转换为可执行代码的过程称被称为代码生成。这个过程与语言、目标平台等息 息相关。
-
+将 AST 转换为可执行代码的过程称被称为代码生成。这个过程与语言、目标平台等息息相关。   
+抛开具体细节，简单来说就是有某种方法可以将` var a = 2; `的 AST 转化为一组机器指令，用来创建一个叫作 a 的变量(包括分配内存等)，并将一个值储存在 a 中。
 
 
 
