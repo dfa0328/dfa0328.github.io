@@ -124,7 +124,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/03/28/compile/ast3.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/28/compile/ast4.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/28/compile/cifa.png">
-<meta property="og:updated_time" content="2019-07-29T10:26:45.466Z">
+<meta property="og:updated_time" content="2019-07-29T10:28:47.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript编译原理">
 <meta name="twitter:description" content="我们通常将 JavaScript 归类为“动态”或“解释执行”语言，但事实上它是一门编译语言。但与传统的编译语言不同，它不是提前编译的，编译结果也不能在分布式系统中进行移植。简单的说就是 JavaScript 大部分情况下编译发生在代码执行前的几微秒。 编译型语言 vs 解释型语言编译型语言写的程序执行之前，需要一个专门的编译过程，把程序编译成为机器语言的文件。解释则不同，解释型语言编写的程序不需">
@@ -370,7 +370,7 @@
 <li><p><strong>代码生成</strong><br>将 AST 转换为可执行代码的过程称被称为代码生成。这个过程与语言、目标平台等息息相关。<br>抛开具体细节，简单来说就是有某种方法可以将<code>var a = 2;</code>的 AST 转化为一组机器指令，用来创建一个叫作 a 的变量(包括分配内存等)，并将一个值储存在 a 中。</p>
 </li>
 </ul>
-<h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><p>JavaScript 其根据一套规则来管理变量的查找与引用，<code>词法作用域</code>就是其使用的规则，在编译器进行词法化时，会根据你写代码时将变量和块作用域写在哪里，来决定规则的内容。<strong>换句话说，词法作用域是由你在写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变(大部分情况下是这样的)。</strong>    </p>
+<h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><p>JavaScript 根据一套规则来管理变量的查找与引用，<code>词法作用域</code>就是其使用的规则，在编译器进行词法化时，会根据你写代码时将变量和块作用域写在哪里，来决定规则的内容。<strong>换句话说，词法作用域是由你在写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变(大部分情况下是这样的)。</strong>    </p>
 <p>当一个块或函数嵌套在另一个块或函数中时，就发生了<code>作用域的嵌套</code>。</p>
 <p>看看下面这个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function foo(a) &#123; </span><br><span class="line">	var b = a * 2;</span><br><span class="line">	function bar(c) &#123; </span><br><span class="line">		console.log( a, b, c );</span><br><span class="line">	&#125;</span><br><span class="line">	bar( b * 3 ); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> foo( 2 ); // 2, 4, 12</span><br></pre></td></tr></table></figure></p>
 <p>在这个例子中有三个逐级嵌套的作用域。如下图：<br><img src="/2018/03/28/compile/cifa.png" width="660" style="border:none"><br>① 包含着整个全局作用域，其中只有一个标识符：foo。<br>② 包含着 foo 所创建的作用域，其中有三个标识符：a、bar 和 b。<br>③ 包含着 bar 所创建的作用域，其中只有一个标识符：c。</p>
